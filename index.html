@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offering Studio — Institutional offering memoranda for independent CRE brokers</title>
+<meta name="description" content="Offering memoranda, BOVs, and pitch materials built to institutional standard. 48-hour first draft. Every number ties back to your model.">
+<meta property="og:title" content="Offering Studio">
+<meta property="og:description" content="Institutional offering memoranda for independent CRE brokers. 48-hour first draft.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BRAND TOKENS — swap these to rebrand the whole site.
+   ============================================================ */
+:root{
+  --ink:#12151C;
+  --ink-soft:#242A36;
+  --ink-mute:#5C6474;
+  --paper:#FBFAF8;
+  --paper-2:#F3F1EC;
+  --rule:#E2DED6;
+  --brass:#A97C3F;
+  --brass-lt:#C9A15F;
+  --white:#FFFFFF;
+
+  --maxw:1160px;
+  --pad:clamp(20px,5vw,40px);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;line-height:1.08;margin:0}
+h1{font-size:clamp(38px,6.4vw,72px)}
+h2{font-size:clamp(30px,4.4vw,50px)}
+h3{font-size:clamp(19px,2.2vw,23px);letter-spacing:-.01em;line-height:1.25}
+
+.eyebrow{
+  font-family:var(--sans);font-size:11.5px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:0 0 18px;
+}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--ink-mute);line-height:1.62;max-width:62ch}
+
+section{padding:clamp(64px,9vw,118px) 0}
+.sec-dark{background:var(--ink);color:var(--paper)}
+.sec-dark .lede{color:#A8B0BF}
+.sec-dark .eyebrow{color:var(--brass-lt)}
+.sec-alt{background:var(--paper-2)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:15px;font-weight:600;letter-spacing:.01em;
+  padding:14px 26px;border-radius:2px;text-decoration:none;
+  border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  transition:.18s ease;cursor:pointer;
+}
+.btn:hover{background:var(--brass);border-color:var(--brass);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn-ghost:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
+.sec-dark .btn{background:var(--brass);border-color:var(--brass);color:#fff}
+.sec-dark .btn:hover{background:var(--brass-lt);border-color:var(--brass-lt)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;background:rgba(251,250,248,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.brand b{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.02em}
+.brand span{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.nav-links{display:flex;align-items:center;gap:30px;flex-shrink:0}
+.nav-links a{font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--brass)}
+/* .nav-links a (0,1,1) outranks .btn (0,1,0) — restate the button color here */
+.nav-links a.btn{padding:10px 20px;font-size:14px;white-space:nowrap;color:var(--paper)}
+.nav-links a.btn:hover{color:#fff}
+@media(max-width:820px){.nav-links a:not(.btn){display:none}}
+@media(max-width:420px){
+  .nav-in{height:58px}
+  .brand b{font-size:18px}
+  .brand span{font-size:9px;letter-spacing:.12em}
+  .nav-links .btn{padding:9px 14px;font-size:13px}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(56px,8vw,96px) 0 clamp(56px,8vw,88px)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero .lede{margin:26px 0 34px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-note{font-size:13.5px;color:var(--ink-mute);margin-top:20px}
+
+/* deck mockup (pure CSS/SVG — no photography needed) */
+.mock{position:relative;aspect-ratio:4/3.1;perspective:1400px}
+.pg{
+  position:absolute;background:#fff;border:1px solid var(--rule);
+  box-shadow:0 22px 50px -18px rgba(18,21,28,.30);border-radius:2px;overflow:hidden;
+}
+.pg-a{width:70%;left:0;top:8%;height:76%;transform:rotate(-3deg)}
+.pg-b{width:70%;right:0;top:0;height:80%;transform:rotate(2.4deg);z-index:2}
+.pg-c{width:56%;left:16%;bottom:0;height:52%;transform:rotate(-1deg);z-index:3}
+.pg-hd{height:34%;background:var(--ink);padding:11px 13px;display:flex;flex-direction:column;justify-content:space-between}
+.pg-hd .t{font-family:var(--serif);color:#fff;font-size:13px;line-height:1.15}
+.pg-hd .k{font-size:6.5px;letter-spacing:.16em;color:var(--brass-lt);font-weight:600}
+.pg-bd{padding:11px 13px;display:grid;gap:6px}
+.ln{height:4px;background:var(--paper-2);border-radius:1px}
+.ln.s{width:58%}.ln.m{width:82%}
+.pg-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:4px}
+.st{border:1px solid var(--rule);padding:6px 5px;border-radius:1px}
+.st b{display:block;font-family:var(--serif);font-size:11px;color:var(--ink)}
+.st i{display:block;font-style:normal;font-size:5.5px;letter-spacing:.11em;color:var(--ink-mute);font-weight:600;margin-top:2px}
+.bars{display:flex;align-items:flex-end;gap:5px;height:46px;margin-top:8px}
+.bars div{flex:1;background:var(--paper-2);border-radius:1px}
+.bars div:nth-child(3){background:var(--brass)}
+
+/* ---------- stat strip ---------- */
+.strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--white)}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:820px){.strip-in{grid-template-columns:repeat(2,1fr)}}
+.strip-in > div{padding:30px 24px;border-right:1px solid var(--rule)}
+.strip-in > div:last-child{border-right:0}
+@media(max-width:820px){
+  .strip-in > div:nth-child(2n){border-right:0}
+  .strip-in > div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+}
+.strip b{display:block;font-family:var(--serif);font-size:clamp(26px,3.4vw,36px);font-weight:500;letter-spacing:-.02em}
+.strip span{display:block;font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-mute);font-weight:600;margin-top:7px}
+
+/* ---------- generic grids ---------- */
+.head{max-width:70ch;margin-bottom:clamp(38px,5vw,60px)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px)}
+.g4{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.6vw,30px)}
+@media(max-width:900px){.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}.g4{grid-template-columns:1fr}}
+
+/* ---------- work / samples ---------- */
+.work{display:block;background:var(--white);border:1px solid var(--rule);border-radius:2px;
+  overflow:hidden;text-decoration:none;transition:.2s ease}
+.work:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:0 20px 40px -22px rgba(18,21,28,.35)}
+.work-thumb{aspect-ratio:11/8.5;background:var(--ink);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.work-thumb .k{font-size:9px;letter-spacing:.2em;font-weight:600;color:var(--brass-lt);text-transform:uppercase}
+.work-thumb .t{font-family:var(--serif);color:#fff;font-size:clamp(20px,2.4vw,26px);line-height:1.14}
+.work-thumb .t em{font-style:italic;color:var(--brass-lt)}
+.work-thumb .m{font-size:11.5px;color:#8E97A8;letter-spacing:.04em}
+.work-thumb::after{content:"";position:absolute;inset:auto -12% -46% auto;width:70%;aspect-ratio:1;
+  border-radius:50%;background:radial-gradient(circle,rgba(169,124,63,.30),transparent 68%)}
+.work-meta{padding:18px 22px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.work-meta strong{display:block;font-size:14.5px;font-weight:600}
+.work-meta > div > span{display:block;font-size:12.5px;color:var(--ink-mute);margin-top:3px}
+.pill{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brass);border:1px solid var(--brass);padding:4px 9px;border-radius:99px;white-space:nowrap}
+
+/* ---------- format cards ---------- */
+.fmt{background:var(--white);border:1px solid var(--rule);border-radius:2px;padding:clamp(24px,3vw,34px);
+  display:flex;flex-direction:column}
+.fmt h3{margin-bottom:8px}
+.fmt .price{font-family:var(--serif);font-size:30px;font-weight:500;letter-spacing:-.02em;margin:16px 0 4px}
+.fmt .price sub{font-size:12px;font-family:var(--sans);font-weight:600;color:var(--ink-mute);
+  letter-spacing:.08em;text-transform:uppercase;vertical-align:baseline;margin-left:6px}
+.fmt p{color:var(--ink-mute);font-size:15.5px;margin:0}
+.fmt ul{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--rule);padding-top:16px}
+.fmt li{font-size:14.5px;color:var(--ink-soft);padding:6px 0 6px 22px;position:relative}
+.fmt li::before{content:"";position:absolute;left:0;top:14px;width:9px;height:1px;background:var(--brass)}
+
+/* ---------- numbered steps ---------- */
+.step{position:relative;padding-top:22px;border-top:2px solid var(--ink)}
+.sec-dark .step{border-top-color:var(--brass)}
+.step .n{font-family:var(--serif);font-size:13px;font-weight:600;color:var(--brass);
+  letter-spacing:.1em;display:block;margin-bottom:12px}
+.step p{color:var(--ink-mute);font-size:15.5px;margin:10px 0 0}
+.sec-dark .step p{color:#A8B0BF}
+
+/* ---------- pricing ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--rule)}
+.tbl th,.tbl td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--rule);font-size:15px}
+.tbl th{background:var(--ink);color:var(--paper);font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:600}
+.tbl td:last-child,.tbl th:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .r-name{font-weight:600}
+.tbl .r-sub{display:block;font-size:13px;color:var(--ink-mute);font-weight:400;margin-top:2px}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:22px 40px 22px 0;position:relative;
+  font-size:17px;font-weight:600;font-family:var(--serif);letter-spacing:-.01em;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:19px;font-size:24px;
+  font-weight:300;color:var(--brass);transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:0 0 24px;color:var(--ink-mute);font-size:15.5px;max-width:70ch}
+
+/* ---------- form ---------- */
+.form-card{background:var(--white);border:1px solid var(--rule);border-radius:2px;padding:clamp(26px,3.4vw,42px)}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:12px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-mute);margin-bottom:7px}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 14px;border:1px solid var(--rule);border-radius:2px;background:var(--paper);
+  font-family:var(--sans);font-size:15.5px;color:var(--ink);transition:.16s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--brass);background:#fff;box-shadow:0 0 0 3px rgba(169,124,63,.12)}
+.field textarea{resize:vertical;min-height:104px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:620px){.f2{grid-template-columns:1fr}}
+.form-note{font-size:13px;color:var(--ink-mute);margin-top:14px}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:#8E97A8;padding:56px 0 34px;font-size:13.5px}
+.foot-in{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+.foot .brand b{color:var(--paper)}
+.foot a{color:#8E97A8;text-decoration:none}
+.foot a:hover{color:var(--brass-lt)}
+.foot-legal{border-top:1px solid #262C39;margin-top:34px;padding-top:22px;font-size:12px;line-height:1.7;color:#6B7383}
+
+/* dark-section table + card tweaks */
+.sec-dark .fmt{background:var(--ink-soft);border-color:#333B4B}
+.sec-dark .fmt p,.sec-dark .fmt li{color:#A8B0BF}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><b>Offering</b><span>Studio</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#formats">What we make</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn" href="#start">Start a deal</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Offering memoranda · BOVs · Pitch materials</p>
+      <h1>Your listing pitch should look like <em>the shop that keeps beating you.</em></h1>
+      <p class="lede">
+        We build institutional-grade offering memoranda and broker opinions of value for
+        independent and boutique brokerages — the kind of book a national firm walks into
+        a listing appointment with. First draft in 48 hours. Every number ties back to
+        your model.
+      </p>
+      <div class="hero-cta">
+        <a class="btn" href="#start">Start a deal</a>
+        <a class="btn btn-ghost" href="#work">See the work</a>
+      </div>
+      <p class="hero-note">Flat fee per deal. No seats, no platform fee, no annual contract.</p>
+    </div>
+
+    <div class="mock" aria-hidden="true">
+      <div class="pg pg-a">
+        <div class="pg-hd"><div class="k">RENT COMPARABLES</div><div class="t">Submarket<br>Rent Survey</div></div>
+        <div class="pg-bd">
+          <div class="ln m"></div><div class="ln"></div><div class="ln s"></div>
+          <div class="bars"><div style="height:42%"></div><div style="height:61%"></div><div style="height:88%"></div><div style="height:54%"></div><div style="height:70%"></div></div>
+        </div>
+      </div>
+      <div class="pg pg-b">
+        <div class="pg-hd"><div class="k">OFFERING SUMMARY</div><div class="t">Institutional<br><span style="font-style:italic;color:#C9A15F">Multifamily</span></div></div>
+        <div class="pg-bd">
+          <div class="pg-stats">
+            <div class="st"><b>$4.85M</b><i>PRICE</i></div>
+            <div class="st"><b>5.42%</b><i>CAP</i></div>
+            <div class="st"><b>18</b><i>UNITS</i></div>
+          </div>
+          <div class="ln m"></div><div class="ln"></div><div class="ln s"></div><div class="ln m"></div>
+        </div>
+      </div>
+      <div class="pg pg-c">
+        <div class="pg-hd" style="height:44%"><div class="k">INCOME &amp; EXPENSE</div><div class="t">Setup Sheet</div></div>
+        <div class="pg-bd">
+          <div class="ln"></div><div class="ln m"></div><div class="ln s"></div><div class="ln m"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRIP ============ -->
+<div class="strip">
+  <div class="wrap" style="padding-top:0;padding-bottom:0">
+    <div class="strip-in">
+      <div><b>48 hrs</b><span>To first draft</span></div>
+      <div><b>Unlimited</b><span>Revision rounds</span></div>
+      <div><b>Flat fee</b><span>Priced per deal</span></div>
+      <div><b>Tied out</b><span>To your underwriting</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ POSITIONING ============ -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Why it matters</p>
+      <h2>The book is the first thing an owner judges you on.</h2>
+    </div>
+    <div class="g2">
+      <div>
+        <p class="lede" style="margin-bottom:20px">
+          On a $6M apartment building, the owner is choosing between you and a national
+          brokerage with a twelve-person marketing floor. They see two proposals. One is a
+          bound, typeset book with real comps, a clean submarket map, and a setup sheet
+          that mirrors their accountant's. The other came out of a template.
+        </p>
+        <p class="lede" style="margin:0">
+          That gap is not talent. It is production capacity — and it is the single cheapest
+          thing on the deal to fix. A $1,500 book on a listing that pays $90,000 is
+          rounding error.
+        </p>
+      </div>
+      <div class="g4" style="align-content:start">
+        <div class="fmt" style="padding:24px">
+          <h3>Not a template filler</h3>
+          <p style="margin-top:8px">Software drops your numbers into a stock layout. We typeset the deal — page architecture built around what this asset's story actually is.</p>
+        </div>
+        <div class="fmt" style="padding:24px">
+          <h3>Not a graphic designer</h3>
+          <p style="margin-top:8px">A designer makes it pretty and asks you what a T-12 is. We read the model, the rent roll, and the prelim, and the book reconciles to all three.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work" class="sec-alt">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Selected work</p>
+      <h2>Sample books.</h2>
+      <p class="lede" style="margin-top:18px">
+        Full-length samples built on fictional properties. Every figure, address, and
+        name in them is invented for demonstration — real client work stays confidential.
+      </p>
+    </div>
+    <div class="g3">
+      <a class="work" href="samples/multifamily-offering.html">
+        <div class="work-thumb">
+          <div class="k">Multifamily OM</div>
+          <div>
+            <div class="t">Institutional<br><em>Multifamily</em></div>
+            <div class="m" style="margin-top:10px">14 pages · Landscape</div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><strong>18-Unit Value-Add</strong><span>Rent roll, setup sheet, comps</span></div>
+          <span class="pill">Sample</span>
+        </div>
+      </a>
+      <a class="work" href="samples/development-om.html">
+        <div class="work-thumb">
+          <div class="k">Development OM</div>
+          <div>
+            <div class="t">For-Sale<br><em>Development</em></div>
+            <div class="m" style="margin-top:10px">Deck stage · 1920×1080</div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><strong>Entitled Townhome Site</strong><span>Sellout, cost basis, absorption</span></div>
+          <span class="pill">Sample</span>
+        </div>
+      </a>
+      <a class="work" href="samples/bov.html">
+        <div class="work-thumb">
+          <div class="k">Broker Opinion of Value</div>
+          <div>
+            <div class="t">Pre-Listing<br><em>Valuation</em></div>
+            <div class="m" style="margin-top:10px">14 pages · Landscape</div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div><strong>Suburban Garden Apartments</strong><span>Value range, comps, process</span></div>
+          <span class="pill">Sample</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMATS ============ -->
+<section id="formats">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">What we make</p>
+      <h2>Four things, made properly.</h2>
+    </div>
+    <div class="g4">
+      <div class="fmt">
+        <p class="eyebrow" style="margin-bottom:10px">01</p>
+        <h3>Multifamily Offering Memorandum</h3>
+        <p>The full income book. Landscape, 14 pages, built around a setup sheet that mirrors how buyers actually underwrite.</p>
+        <div class="price">$1,500<sub>per deal</sub></div>
+        <ul>
+          <li>Offering summary, rent roll &amp; unit mix</li>
+          <li>Income &amp; expense setup sheet, current and pro forma</li>
+          <li>Sale and rent comparables with clean submarket maps</li>
+          <li>Confidentiality page and material disclosures</li>
+          <li>Print-ready PDF, plus an email-safe copy under 10 MB</li>
+        </ul>
+      </div>
+      <div class="fmt">
+        <p class="eyebrow" style="margin-bottom:10px">02</p>
+        <h3>Development Offering Memorandum</h3>
+        <p>For-sale residential and land. Deck-stage 1920×1080, built for a screen-share pitch as much as a print-out.</p>
+        <div class="price">$1,500<sub>per deal</sub></div>
+        <ul>
+          <li>Entitlement status and unit program</li>
+          <li>Sellout analysis and cost basis</li>
+          <li>Absorption and closed-comp support</li>
+          <li>Site plan and rendering integration</li>
+          <li>Optional deployed deal website</li>
+        </ul>
+      </div>
+      <div class="fmt">
+        <p class="eyebrow" style="margin-bottom:10px">03</p>
+        <h3>Broker Opinion of Value</h3>
+        <p>The pre-listing book that wins the assignment. Defensible value range, real comp support, and a marketing process section.</p>
+        <div class="price">$900<sub>per deal</sub></div>
+        <ul>
+          <li>Investment overview and positioning</li>
+          <li>Financial analysis with a pricing matrix</li>
+          <li>Sale and lease comparables</li>
+          <li>Marketing process and timeline</li>
+          <li>Your branding throughout</li>
+        </ul>
+      </div>
+      <div class="fmt">
+        <p class="eyebrow" style="margin-bottom:10px">04</p>
+        <h3>Listing Social &amp; Flyers</h3>
+        <p>The short-form companions. Just-listed, price-reduced, in-escrow, and just-sold posts in one consistent house style.</p>
+        <div class="price">$150<sub>per set</sub></div>
+        <ul>
+          <li>Square 1080×1080 post plus story crop</li>
+          <li>One-page property flyer, print-ready</li>
+          <li>Matched to your OM's typography and palette</li>
+          <li>Ready-to-upload PNG and PDF</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" class="sec-dark">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2>Send the file. Get a book back.</h2>
+      <p class="lede" style="margin-top:18px">
+        No onboarding call, no software to learn, no seat to provision. You send what you
+        already have; we handle the rest.
+      </p>
+    </div>
+    <div class="g3">
+      <div class="step">
+        <span class="n">01</span>
+        <h3 style="color:var(--paper)">You send the deal</h3>
+        <p>Your underwriting model or pricing sheet, the rent roll, the MLS or property facts, and whatever photos exist. A messy spreadsheet is fine. If comps are missing, say so and we source them.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3 style="color:var(--paper)">Draft in 48 hours</h3>
+        <p>You get a complete, typeset book — not a wireframe. Maps generated, comps laid out, setup sheet reconciled to your model. Anything we could not verify is flagged rather than invented.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3 style="color:var(--paper)">Revise until it's right</h3>
+        <p>Unlimited rounds, usually turned same day. You end with a print PDF, an email-safe compressed PDF, and the source file so a future version costs you nothing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFFERENTIATOR ============ -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The difference</p>
+      <h2>We read the model.</h2>
+      <p class="lede" style="margin-top:18px">
+        Most of what goes wrong in an OM is not design. It is a cap rate on page 4 that
+        disagrees with the setup sheet on page 12, and a buyer's analyst catching it.
+      </p>
+    </div>
+    <div class="g3">
+      <div class="step">
+        <span class="n">Reconciled</span>
+        <h3>Every figure traces to a source</h3>
+        <p>Price, cap, GRM, NOI, and returns match your model exactly. $/unit and $/SF are re-derived from the sale price rather than retyped. Where two sources disagree, we surface it instead of silently picking one.</p>
+      </div>
+      <div class="step">
+        <span class="n">Disclosed</span>
+        <h3>Material items get said out loud</h3>
+        <p>Rent control, recorded notices, pending litigation, tax default, easements. A book that buries what the prelim shows is a liability, not a marketing document.</p>
+      </div>
+      <div class="step">
+        <span class="n">Nothing invented</span>
+        <h3>No fabricated numbers, ever</h3>
+        <p>If a rent, an expense line, or a comp cannot be sourced, it is flagged for you to fill — never guessed at to make a page look complete. These are regulated documents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="sec-alt">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Pricing</p>
+      <h2>Flat fee. Per deal.</h2>
+      <p class="lede" style="margin-top:18px">
+        No per-seat licence, no monthly platform fee, and nothing to cancel. If the deal
+        dies before it launches, you have still paid once.
+      </p>
+    </div>
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead>
+          <tr><th>Deliverable</th><th>Turnaround</th><th>Fee</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="r-name">Broker Opinion of Value</span><span class="r-sub">16 pages, landscape, your branding</span></td>
+            <td>48 hours</td><td>$900</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">Multifamily Offering Memorandum</span><span class="r-sub">14 pages, landscape, full setup sheet</span></td>
+            <td>48 hours</td><td>$1,500</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">Development Offering Memorandum</span><span class="r-sub">Deck stage, 1920×1080, sellout analysis</span></td>
+            <td>48 hours</td><td>$1,500</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">Listing social &amp; flyer set</span><span class="r-sub">Post, story crop, one-page flyer</span></td>
+            <td>24 hours</td><td>$150</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">BOV → OM conversion</span><span class="r-sub">When the BOV wins the listing</span></td>
+            <td>24 hours</td><td>$600</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">Rush</span><span class="r-sub">Next-morning draft</span></td>
+            <td>Overnight</td><td>+50%</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">House format setup</span><span class="r-sub">One-time: your palette, type, logo, contact blocks baked in</span></td>
+            <td>One week</td><td>$1,200</td>
+          </tr>
+          <tr>
+            <td><span class="r-name">Retainer — four books a month</span><span class="r-sub">Priority queue, rush included</span></td>
+            <td>Ongoing</td><td>$4,200/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="form-note" style="max-width:70ch">
+      Comparable: a per-seat marketing platform runs $85–$249 per broker per month plus a
+      $275 monthly platform fee, and still hands you a template. A freelance designer runs
+      $100–$500 and cannot read your rent roll.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Questions</p>
+      <h2>Before you send the first deal.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Whose branding goes on the book?</summary>
+        <p>Yours. Your logo, your palette, your contact block, your disclaimers. We are a production shop, not a co-brand — nothing on the finished document says Offering Studio. The one-time house format setup exists so that every future book comes out already matching your identity.</p>
+      </details>
+      <details>
+        <summary>What exactly do you need from me to start?</summary>
+        <p>Your underwriting model or pricing sheet, the rent roll, the property facts (MLS sheet, assessor data, or just an email describing it), and any photos. If you have a prelim title report, send it — material disclosures belong in the book. Missing comps we can source; missing financials we cannot invent.</p>
+      </details>
+      <details>
+        <summary>Do you handle the photography?</summary>
+        <p>No. We work with what you provide — listing photos, drone stills, renderings. If a deal has no usable photography we will tell you before the draft rather than pad the book with stock imagery, and we can recommend a shooter in your market.</p>
+      </details>
+      <details>
+        <summary>Is my deal information confidential?</summary>
+        <p>Yes. Rent rolls, models, and owner information are never published, never used as portfolio samples, and never shared. The samples on this site are built on entirely fictional properties for exactly this reason. A mutual NDA before the first file is welcome.</p>
+      </details>
+      <details>
+        <summary>Who is actually doing the work?</summary>
+        <p>An active commercial brokerage professional who has produced these books for institutional multifamily and development listings, working with a purpose-built production pipeline. That is why the setup sheet is right and the comps reconcile — this is not outsourced page layout.</p>
+      </details>
+      <details>
+        <summary>What if I don't like the draft?</summary>
+        <p>Revisions are unlimited and usually same-day. If the first draft misses badly enough that you would rather walk, say so within 48 hours of receiving it and there is no fee. That has to be worth more to us than one invoice.</p>
+      </details>
+      <details>
+        <summary>Can you work in my existing template?</summary>
+        <p>Sometimes. If you have a PowerPoint or InDesign house format you are committed to, send it and we will tell you honestly whether we can match it or whether you are better served by a rebuild. We will not pretend a weak template is fine.</p>
+      </details>
+      <details>
+        <summary>Do you work with agents at national brokerages?</summary>
+        <p>Not currently. The service is built for independent and boutique shops without an in-house marketing department. Agents at national firms already have one.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START ============ -->
+<section id="start" class="sec-alt">
+  <div class="wrap g2" style="align-items:start">
+    <div>
+      <p class="eyebrow">Start a deal</p>
+      <h2>Send it over.</h2>
+      <p class="lede" style="margin-top:18px">
+        Tell us what the deal is. You will get a scope and a fixed fee back the same day,
+        and a draft 48 hours after you send the files. No call required unless you want one.
+      </p>
+      <p class="lede" style="margin-top:22px">
+        Prefer email? <a href="mailto:hello@offeringstudio.com" style="color:var(--brass);text-decoration:none;border-bottom:1px solid var(--brass)">hello@offeringstudio.com</a>
+      </p>
+    </div>
+
+    <form class="form-card" action="https://formspree.io/f/xnjeynee" method="POST">
+      <div class="f2">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="firm">Brokerage</label>
+          <input id="firm" name="firm" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="f2">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="f2">
+        <div class="field">
+          <label for="deliverable">Deliverable</label>
+          <select id="deliverable" name="deliverable">
+            <option>Multifamily OM — $1,500</option>
+            <option>Development OM — $1,500</option>
+            <option>Broker Opinion of Value — $900</option>
+            <option>Social &amp; flyer set — $150</option>
+            <option>House format setup — $1,200</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="when">Needed by</label>
+          <select id="when" name="when">
+            <option>Standard — 48 hours</option>
+            <option>Rush — overnight (+50%)</option>
+            <option>Next week</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="deal">The deal</label>
+        <textarea id="deal" name="deal" placeholder="Asset type, unit count, submarket, target price, and what you already have (model, rent roll, photos)." required></textarea>
+      </div>
+      <button class="btn" type="submit" style="width:100%;justify-content:center">Request a scope &amp; fee</button>
+      <p class="form-note">Deal information is treated as confidential. Nothing you send is used as a sample.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <a class="brand" href="#top" style="text-decoration:none"><b>Offering</b><span>Studio</span></a>
+        <p style="margin:12px 0 0;max-width:34ch">Institutional offering memoranda for independent commercial brokerages.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;color:var(--paper);font-weight:600">Work</p>
+        <p style="margin:0;line-height:2">
+          <a href="samples/multifamily-offering.html">Multifamily OM</a><br>
+          <a href="samples/development-om.html">Development OM</a><br>
+          <a href="samples/bov.html">Broker Opinion of Value</a>
+        </p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;color:var(--paper);font-weight:600">Contact</p>
+        <p style="margin:0;line-height:2">
+          <a href="mailto:hello@offeringstudio.com">hello@offeringstudio.com</a><br>
+          <a href="#start">Start a deal</a><br>
+          <a href="#pricing">Pricing</a>
+        </p>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <p style="margin:0 0 8px">
+        Offering Studio provides marketing production and document design services. It is
+        not a real estate brokerage, does not represent buyers or sellers, does not provide
+        investment, legal, tax, or appraisal advice, and does not solicit brokerage business.
+        Valuation conclusions, pricing opinions, and all representations within a finished
+        document remain those of the retaining broker.
+      </p>
+      <p style="margin:0">© <span id="yr">2026</span> Offering Studio. All rights reserved. Sample documents depict
+      fictional properties; all figures, addresses, and names in them are illustrative.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

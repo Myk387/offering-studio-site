@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sample Offering Memorandum — Marisol Court Apartments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#12304F; --navy-deep:#0A1F36; --navy-soft:#1F4A75;
+    --cream:#F6F5F2; --cream-2:#EAE8E2;
+    --accent:#B07C3C; --accent-deep:#8E6129;
+    --ink:#1B1F27; --muted:#6B7280; --line:#DCD9D2;
+    --pageW:11in; --pageH:8.5in;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#4A4E55}
+  body{font-family:'Inter',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  .toolbar{position:fixed;top:14px;right:14px;z-index:99;display:flex;gap:8px}
+  .toolbar button,.toolbar a{font-family:'Inter';font-size:12px;font-weight:600;letter-spacing:.04em;border:none;border-radius:5px;
+    background:var(--accent);color:#fff;padding:9px 14px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);text-decoration:none}
+  .toolbar a{background:var(--navy)}
+  /* The SAMPLE flag must survive printing — a sample PDF without it is a
+     document that could be mistaken for a real offering. Only hide the UI. */
+  @media print{.toolbar{display:none}}
+
+  .deck{display:flex;flex-direction:column;align-items:center;gap:26px;padding:34px 14px 60px}
+  .page{width:var(--pageW);height:var(--pageH);background:var(--cream);position:relative;overflow:hidden;
+    box-shadow:0 10px 38px rgba(0,0,0,.4)}
+  .page-pad{position:absolute;inset:0;padding:.5in .6in .4in;display:flex;flex-direction:column}
+  @page{size:11in 8.5in;margin:0}
+  @media print{.deck{gap:0;padding:0}.page{box-shadow:none;break-after:page}}
+
+  .sampleflag{position:absolute;top:26px;right:-46px;transform:rotate(38deg);z-index:20;
+    background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:.26em;
+    padding:5px 56px;opacity:.92;pointer-events:none}
+
+  .rh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1.5px solid var(--line);padding-bottom:8px;margin-bottom:15px}
+  .rh .eyebrow{font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .rh .sect{font-family:'Playfair Display';font-size:19px;color:var(--navy);font-weight:600;margin-top:2px}
+  .rh .tag{font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:right}
+  .rf{margin-top:12px;display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--line);padding-top:7px;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .rf .pg{color:var(--navy);font-weight:600}
+  .logo{display:flex;align-items:center;gap:7px;font-family:'Playfair Display';font-weight:600;color:var(--navy);font-size:13px}
+  .logo .dia{width:9px;height:9px;background:var(--accent);transform:rotate(45deg);display:inline-block}
+
+  h1,h2,h3{margin:0}
+  .body{flex:1;min-height:0;overflow:hidden}
+  p{line-height:1.5}
+  .eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .lead{font-family:'Playfair Display';font-size:15px;line-height:1.5;color:var(--navy);font-weight:500}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+  /* ---- cover ---- */
+  .cover{background:var(--navy-deep);color:#fff}
+  .cover .hero{position:absolute;inset:0}
+  .cover .hero img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) brightness(.9)}
+  /* Top band must stay dark enough for the brandmark + tag; bottom for the title block. */
+  .cover .grad{position:absolute;inset:0;background:linear-gradient(180deg,
+    rgba(10,31,54,.82) 0%,rgba(10,31,54,.42) 22%,rgba(10,31,54,.30) 45%,rgba(10,31,54,.92) 100%)}
+  .cover .frame{position:absolute;inset:.32in;border:1px solid rgba(255,255,255,.28);pointer-events:none}
+  .cover-top{position:absolute;top:.5in;left:.7in;right:.7in;display:flex;justify-content:space-between;align-items:center;z-index:3}
+  .om-tag{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .cover-divider{height:2px;width:64px;background:var(--accent)}
+  .cover-footer{position:absolute;left:0;right:0;bottom:0;padding:64px .7in .5in;z-index:3;
+    background:linear-gradient(0deg,rgba(10,31,54,.94) 14%,rgba(10,31,54,0) 100%)}
+  .cover-footer .cover-divider{margin:0 0 14px 2px}
+  .cf-title{font-family:'Playfair Display';font-size:52px;line-height:.97;font-weight:600;color:#fff;letter-spacing:-.01em}
+  .cf-title em{font-style:italic;color:var(--accent)}
+  .cf-addr{margin-top:14px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+  .cover-stats{display:flex;gap:46px;margin-top:24px}
+  .cover-stats .s .v{font-family:'Playfair Display';font-size:21px;font-weight:600;color:#fff}
+  .cover-stats .s .l{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:5px}
+  .brandmark{font-family:'Playfair Display';font-size:17px;font-weight:600;color:#fff;letter-spacing:.01em}
+  .brandmark span{display:block;font-family:'Inter';font-size:7.5px;letter-spacing:.24em;color:var(--accent);font-weight:700;margin-top:3px}
+
+  /* ---- photo slots ---- */
+  .ph{position:relative;background:var(--navy-deep);overflow:hidden;display:flex;align-items:flex-end}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* scrim keeps the caption legible over light photography */
+  .ph::before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;z-index:1;
+    background:linear-gradient(0deg,rgba(10,31,54,.88) 0%,rgba(10,31,54,.45) 45%,transparent 100%)}
+  .ph .ph-tag{position:relative;z-index:2;font-size:8px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.9);font-weight:600;padding:9px 11px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+  /* ---- tiles / kpis / tables ---- */
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .tile-c{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);padding:13px 15px}
+  .tile-c .l{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .tile-c .v{font-family:'Playfair Display';font-size:25px;font-weight:600;color:var(--navy);margin-top:5px;line-height:1}
+  .tile-c .sub{font-size:9px;color:var(--muted);margin-top:4px}
+
+  .specgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .speccard{background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px}
+  .speccard .l{font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .speccard .v{font-family:'Playfair Display';font-size:15px;font-weight:600;color:var(--navy);margin-top:6px;line-height:1.15}
+
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);background:var(--navy)}
+  .kpis .k{padding:13px 14px;border-left:1px solid rgba(255,255,255,.1)}
+  .kpis .k:first-child{border-left:none}
+  .kpis .k .v{font-family:'Playfair Display';font-size:21px;font-weight:600;color:#fff;line-height:1}
+  .kpis .k .v.acc{color:var(--accent)}
+  .kpis .k .l{font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:6px}
+
+  table{width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;border:1px solid var(--line)}
+  thead th{background:var(--navy);color:#fff;font-weight:600;text-align:right;padding:7px 9px;font-size:8.5px;
+    letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--accent)}
+  thead th:first-child{text-align:left}
+  tbody td{padding:5.5px 9px;text-align:right;border-bottom:1px solid var(--line);color:#2b323d}
+  tbody td:first-child{text-align:left;font-weight:500;color:var(--ink)}
+  tbody tr:nth-child(even){background:rgba(18,48,79,.035)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr.sum td{background:var(--cream-2);font-weight:700;color:var(--navy);border-top:1.5px solid var(--navy)}
+  tbody tr.hl td{background:rgba(176,124,60,.13);font-weight:600}
+  .t-note{font-size:8px;color:var(--muted);margin-top:7px;font-style:italic}
+
+  /* ---- setup sheet ---- */
+  .fbar{background:var(--navy);color:#fff;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;padding:5px 10px;border-bottom:2px solid var(--accent);margin-top:9px}
+  .fbar:first-child{margin-top:0}
+  .frow{display:flex;justify-content:space-between;font-size:9.5px;padding:3.5px 10px;border-bottom:1px solid var(--line);background:#fff}
+  .frow span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+  .frow.tot{background:var(--cream-2);font-weight:700;color:var(--navy)}
+  .frow.tot span:last-child{color:var(--navy)}
+  .frow .mut{color:var(--muted)}
+
+  /* ---- highlight cards ---- */
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+  .hl-card{background:#fff;border:1px solid var(--line);border-radius:5px;padding:13px 15px;display:flex;gap:12px;align-items:flex-start}
+  .hl-card .chip{flex-shrink:0;width:24px;height:24px;border-radius:4px;background:var(--navy);color:#fff;
+    font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .hl-card .tx b{display:block;font-size:11px;color:var(--navy);font-weight:700;margin-bottom:3px}
+  .hl-card .tx span{font-size:9.5px;color:var(--muted);line-height:1.45}
+
+  .panel{background:#fff;border:1px solid var(--line);padding:13px 15px}
+  .panel h3{font-family:'Playfair Display';font-size:13px;color:var(--navy);font-weight:600;margin-bottom:8px}
+  .panel.accent{border-top:3px solid var(--accent)}
+  .dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:9.5px}
+  .dl dt{color:var(--muted)}
+  .dl dd{margin:0;text-align:right;font-weight:600;color:var(--ink)}
+  .notes{background:var(--navy-deep);color:#fff;padding:12px 14px;border-left:3px solid var(--accent)}
+  .notes h4{margin:0 0 6px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .notes p{margin:0;font-size:9.5px;line-height:1.55;color:rgba(255,255,255,.86)}
+
+  /* ---- maps ---- */
+  .mapfr{position:relative;overflow:hidden;border:1px solid var(--line);background:#e8e6e1}
+  .mapfr img.tile{position:absolute;width:256px;height:256px}
+  .pin{position:absolute;transform:translate(-50%,-50%);width:19px;height:19px;border-radius:50%;
+    background:var(--navy);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;
+    justify-content:center;box-shadow:0 1px 5px rgba(0,0,0,.4);border:1.5px solid #fff;z-index:5}
+  .pin.subj{background:var(--accent);width:23px;height:23px;font-size:10px}
+  .mapattr{position:absolute;right:4px;bottom:3px;z-index:6;font-size:6.5px;color:#5a6068;
+    background:rgba(255,255,255,.78);padding:1px 5px;border-radius:2px;letter-spacing:.02em}
+
+  .toc-l{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .toc-l .n{font-family:'Playfair Display';color:var(--accent);font-weight:700;width:24px}
+  .toc-l .t{color:var(--navy);font-weight:600}
+  .toc-l .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-3px)}
+  .toc-l .p{color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="../index.html">&larr; Offering Studio</a>
+  <button onclick="window.print()">&#10515; Print / Save PDF</button>
+</div>
+
+<div class="deck">
+
+<!-- ============ 1. COVER ============ -->
+<section class="page cover">
+  <div class="hero"><img src="assets/cover.jpg" onerror="this.remove()" alt=""></div>
+  <div class="grad"></div>
+  <div class="frame"></div>
+  <div class="cover-top">
+    <div class="brandmark">Weston Ridge<span>Commercial</span></div>
+    <div class="om-tag">Multifamily Offering Memorandum</div>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-divider"></div>
+    <div class="cf-title">Marisol Court<br><em>Apartments</em></div>
+    <div class="cf-addr">6412 Marisol Street &nbsp;·&nbsp; Van Nuys, CA 91405</div>
+    <div class="cover-stats">
+      <div class="s"><div class="v">$4,850,000</div><div class="l">Offering Price</div></div>
+      <div class="s"><div class="v">18</div><div class="l">Units</div></div>
+      <div class="s"><div class="v">5.42%</div><div class="l">Current Cap</div></div>
+      <div class="s"><div class="v">6.82%</div><div class="l">Pro Forma Cap</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. CONFIDENTIALITY ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Notice</div><div class="sect">Confidentiality &amp; Disclaimer</div></div>
+      <div class="tag">Marisol Court Apartments</div>
+    </div>
+    <div class="body grid2">
+      <div>
+        <div class="panel accent" style="margin-bottom:14px">
+          <h3>Exclusively Listed By</h3>
+          <div style="font-size:10px;line-height:1.7">
+            <b style="color:var(--navy);font-size:11px">Dana Whitfield</b><br>
+            Principal, Multifamily Investments<br>
+            CA DRE #01999901<br>
+            (818) 555-0140<br>
+            dana.whitfield@westonridge.example
+          </div>
+          <div style="height:1px;background:var(--line);margin:11px 0"></div>
+          <div style="font-size:10px;line-height:1.7">
+            <b style="color:var(--navy);font-size:11px">Andre Cortez</b><br>
+            Director, Investment Sales<br>
+            CA DRE #01999902<br>
+            (818) 555-0141<br>
+            andre.cortez@westonridge.example
+          </div>
+          <div style="height:1px;background:var(--line);margin:11px 0"></div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.6">
+            Weston Ridge Commercial<br>
+            15250 Ventura Boulevard, Suite 400<br>
+            Sherman Oaks, CA 91403
+          </div>
+        </div>
+        <div class="notes">
+          <h4>This is a sample document</h4>
+          <p>Marisol Court Apartments does not exist. The address, brokerage, agents, licence
+          numbers, rents, expenses, comparables, and all financial figures shown here were
+          invented to demonstrate document structure and typography. Nothing in this book
+          describes a real property or a real offering.</p>
+        </div>
+      </div>
+      <div style="font-size:9.5px;line-height:1.62;color:#3a4150">
+        <p style="margin-top:0"><b style="color:var(--navy)">Confidentiality.</b> This Offering Memorandum
+        has been prepared by Weston Ridge Commercial for use by a limited number of parties and
+        contains information that is proprietary and confidential. It is delivered on the condition
+        that it be held in the strictest confidence, that its contents not be disclosed or
+        reproduced in whole or in part, and that it be returned on request.</p>
+
+        <p><b style="color:var(--navy)">No representation or warranty.</b> The information contained
+        herein has been obtained from sources believed to be reliable, including the owner, public
+        records, and third-party reports. Weston Ridge Commercial has not verified, and will not
+        verify, any of the information contained herein, nor has it conducted any investigation
+        regarding these matters. No warranty or representation, express or implied, is made as to
+        the accuracy or completeness of the information, and the same is submitted subject to
+        errors, omissions, change of price, rental or other conditions, prior sale or lease, or
+        withdrawal without notice.</p>
+
+        <p><b style="color:var(--navy)">Independent investigation.</b> Prospective purchasers must
+        conduct their own investigation of the property and the transaction, including but not
+        limited to the physical condition of the improvements, the accuracy of the rent roll and
+        operating statements, the presence of hazardous substances, compliance with applicable
+        codes and rent-stabilisation ordinances, and the financial projections contained herein.
+        Projections are estimates only and actual results will differ.</p>
+
+        <p><b style="color:var(--navy)">Rent stabilisation.</b> The subject is located within a
+        jurisdiction subject to local rent-stabilisation regulation. Allowable annual increases,
+        relocation obligations, and just-cause eviction requirements materially affect the pro
+        forma rents shown. Buyers must independently verify the regulatory status of each unit
+        and the legality of all in-place rents.</p>
+
+        <p><b style="color:var(--navy)">Non-endorsement.</b> Reference to any brand, tenant, or
+        business is provided for informational purposes only and does not imply affiliation,
+        sponsorship, or endorsement.</p>
+
+        <p style="margin-bottom:0"><b style="color:var(--navy)">Not investment advice.</b> This
+        document does not constitute investment, legal, tax, or accounting advice. Each recipient
+        should consult its own advisers before proceeding.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">02</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. CONTENTS ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">The Opportunity</div><div class="sect">Table of Contents</div></div>
+      <div class="tag">18 Units · Van Nuys</div>
+    </div>
+    <div class="body grid2" style="gap:26px">
+      <div style="background:var(--navy);color:#fff;padding:26px;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700">The Opportunity</div>
+          <div style="font-family:'Playfair Display';font-size:30px;line-height:1.06;font-weight:600;margin-top:14px">
+            Marisol Court<br><em style="color:var(--accent)">Apartments</em>
+          </div>
+          <div style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:12px">
+            6412 Marisol Street<br>Van Nuys, CA 91405
+          </div>
+          <p style="font-size:9.5px;line-height:1.6;color:rgba(255,255,255,.8);margin-top:18px">
+            An 18-unit garden apartment community offering 15.2% embedded rent upside,
+            two recently completed ADU conversions, and a 5.42% going-in return in a
+            supply-constrained San Fernando Valley submarket.
+          </p>
+        </div>
+        <div>
+          <div style="height:2px;width:52px;background:var(--accent);margin-bottom:11px"></div>
+          <div style="font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6)">Exclusively Listed By</div>
+          <div style="font-size:11px;font-weight:600;margin-top:6px;line-height:1.6">Dana Whitfield<br>Andre Cortez</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center">
+        <div class="toc-l"><span class="n">01</span><span class="t">Offering Summary</span><span class="dots"></span><span class="p">04</span></div>
+        <div class="toc-l"><span class="n">02</span><span class="t">Property Overview</span><span class="dots"></span><span class="p">05</span></div>
+        <div class="toc-l"><span class="n">03</span><span class="t">Location &amp; Submarket</span><span class="dots"></span><span class="p">06</span></div>
+        <div class="toc-l"><span class="n">04</span><span class="t">Property Photographs</span><span class="dots"></span><span class="p">07</span></div>
+        <div class="toc-l"><span class="n">05</span><span class="t">Investment Highlights</span><span class="dots"></span><span class="p">08</span></div>
+        <div class="toc-l"><span class="n">06</span><span class="t">Rent Roll &amp; Unit Mix</span><span class="dots"></span><span class="p">09</span></div>
+        <div class="toc-l"><span class="n">07</span><span class="t">Income &amp; Expense</span><span class="dots"></span><span class="p">10</span></div>
+        <div class="toc-l"><span class="n">08</span><span class="t">Sales Comparables</span><span class="dots"></span><span class="p">11</span></div>
+        <div class="toc-l"><span class="n">09</span><span class="t">Rent Comparables</span><span class="dots"></span><span class="p">12</span></div>
+        <div class="toc-l"><span class="n">10</span><span class="t">Market Overview</span><span class="dots"></span><span class="p">13</span></div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">03</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. OFFERING SUMMARY ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 01</div><div class="sect">Offering Summary</div></div>
+      <div class="tag">Investor Snapshot</div>
+    </div>
+    <div class="body">
+      <div class="grid2" style="grid-template-columns:1.18fr .82fr;height:100%">
+        <div style="display:flex;flex-direction:column">
+          <div class="tiles" style="margin-bottom:14px">
+            <div class="tile-c"><div class="l">Offering Price</div><div class="v">$4,850,000</div><div class="sub">$269,444 per unit</div></div>
+            <div class="tile-c"><div class="l">Current Cap</div><div class="v">5.42%</div><div class="sub">6.82% pro forma</div></div>
+            <div class="tile-c"><div class="l">Total Units</div><div class="v">18</div><div class="sub">Incl. 2 ADU conversions</div></div>
+          </div>
+
+          <div class="panel" style="margin-bottom:12px">
+            <h3>Financial</h3>
+            <dl class="dl">
+              <dt>Offering price</dt><dd>$4,850,000</dd>
+              <dt>Price per unit</dt><dd>$269,444</dd>
+              <dt>Price per rentable SF</dt><dd>$337.74</dd>
+              <dt>Current gross scheduled rent</dt><dd>$405,360</dd>
+              <dt>Pro forma gross scheduled rent</dt><dd>$467,160</dd>
+              <dt>Current net operating income</dt><dd>$263,090</dd>
+              <dt>Pro forma net operating income</dt><dd>$330,542</dd>
+              <dt>Current / pro forma GRM</dt><dd>11.96 / 10.38</dd>
+              <dt>Current / pro forma cap rate</dt><dd>5.42% / 6.82%</dd>
+            </dl>
+          </div>
+
+          <div class="panel">
+            <h3>Operational</h3>
+            <dl class="dl">
+              <dt>Year built</dt><dd>1974</dd>
+              <dt>Rentable area</dt><dd>14,360 SF</dd>
+              <dt>Lot area</dt><dd>21,780 SF (0.50 ac)</dd>
+              <dt>Buildings / stories</dt><dd>2 / two-storey</dd>
+              <dt>Parking</dt><dd>22 spaces — carport + open</dd>
+              <dt>Occupancy at listing</dt><dd>94.4% (17 of 18)</dd>
+              <dt>Rent regulation</dt><dd>Subject to local stabilisation</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;min-height:0">
+          <div class="ph" style="flex:1;min-height:0">
+            <img src="assets/exterior-1.jpg" onerror="this.remove()" alt="">
+            <div class="ph-tag">Street elevation — Marisol Street</div>
+          </div>
+          <div class="ph" style="flex:1;min-height:0">
+            <img src="assets/aerial.jpg" onerror="this.remove()" alt="">
+            <div class="ph-tag">Aerial — subject &amp; surrounding block</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">04</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. PROPERTY OVERVIEW ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 02</div><div class="sect">Property Overview</div></div>
+      <div class="tag">Physical Description</div>
+    </div>
+    <div class="body">
+      <p class="lead" style="margin:0 0 14px">
+        Two two-storey garden buildings arranged around a central courtyard, built in 1974 on a
+        half-acre lot, with two ground-floor storage areas converted to permitted accessory
+        dwelling units in 2024.
+      </p>
+      <p style="font-size:10px;color:#3a4150;margin:0 0 16px;line-height:1.6">
+        Held by the same ownership since 2003 and operated with minimal rent increases, producing
+        in-place rents approximately 15% below the surveyed submarket. Nine of eighteen units retain
+        original kitchens and baths. Electrical remains original to construction and is sub-metered
+        to each unit; water, sewer, and trash are owner-paid and currently recovered from residents
+        at approximately 42% through a ratio utility billing system introduced in 2023.
+      </p>
+      <div class="specgrid">
+        <div class="speccard"><div class="l">Year Built</div><div class="v">1974</div></div>
+        <div class="speccard"><div class="l">Total Units</div><div class="v">18</div></div>
+        <div class="speccard"><div class="l">Rentable Area</div><div class="v">14,360 SF</div></div>
+        <div class="speccard"><div class="l">Lot Area</div><div class="v">21,780 SF</div></div>
+        <div class="speccard"><div class="l">Buildings</div><div class="v">2</div></div>
+        <div class="speccard"><div class="l">Stories</div><div class="v">Two</div></div>
+        <div class="speccard"><div class="l">Parking</div><div class="v">22 Spaces</div></div>
+        <div class="speccard"><div class="l">Construction</div><div class="v">Wood Frame / Stucco</div></div>
+        <div class="speccard"><div class="l">Roof</div><div class="v">Replaced 2021</div></div>
+        <div class="speccard"><div class="l">Sewer Lateral</div><div class="v">Replaced 2019</div></div>
+        <div class="speccard"><div class="l">Utilities</div><div class="v">RUBS — 42% Recovery</div></div>
+        <div class="speccard"><div class="l">Zoning</div><div class="v">Multiple Residential</div></div>
+      </div>
+      <div class="grid2" style="margin-top:14px;gap:14px">
+        <div class="panel" style="padding:11px 14px">
+          <h3 style="font-size:12px;margin-bottom:6px">Unit Amenities</h3>
+          <div style="font-size:9.5px;color:var(--muted);line-height:1.7">
+            Private patio or balcony &nbsp;·&nbsp; Wall air conditioning &nbsp;·&nbsp; Gas range<br>
+            Assigned covered parking &nbsp;·&nbsp; In-unit laundry in ADU units<br>
+            Renovated units: quartz counters, LVP flooring, stacked washer/dryer
+          </div>
+        </div>
+        <div class="panel" style="padding:11px 14px">
+          <h3 style="font-size:12px;margin-bottom:6px">Common Area</h3>
+          <div style="font-size:9.5px;color:var(--muted);line-height:1.7">
+            Landscaped central courtyard &nbsp;·&nbsp; Controlled-access pedestrian gate<br>
+            On-site laundry room (3 washers / 3 dryers, leased)<br>
+            Secured storage lockers &nbsp;·&nbsp; LED-retrofitted common lighting
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:11px;padding:10px 14px">
+        <h3 style="font-size:11.5px;margin-bottom:6px">Capital Improvements &amp; Remaining Scope</h3>
+        <table style="border:none;font-size:9.5px">
+          <thead>
+            <tr><th style="padding:4px 8px">Item</th><th style="padding:4px 8px">Year</th><th style="padding:4px 8px">Status</th><th style="padding:4px 8px">Est. Remaining Cost</th></tr>
+          </thead>
+          <tbody style="line-height:1.2">
+            <tr><td style="padding:3.5px 8px">Roof replacement — both buildings</td><td style="padding:3.5px 8px">2021</td><td style="padding:3.5px 8px">Complete</td><td style="padding:3.5px 8px">—</td></tr>
+            <tr><td style="padding:3.5px 8px">Main sewer lateral replacement</td><td style="padding:3.5px 8px">2019</td><td style="padding:3.5px 8px">Complete</td><td style="padding:3.5px 8px">—</td></tr>
+            <tr><td style="padding:3.5px 8px">ADU conversions (2 units, permitted)</td><td style="padding:3.5px 8px">2024</td><td style="padding:3.5px 8px">Complete, C of O issued</td><td style="padding:3.5px 8px">—</td></tr>
+            <tr><td style="padding:3.5px 8px">Interior renovation — 9 original units</td><td style="padding:3.5px 8px">—</td><td style="padding:3.5px 8px">Buyer scope</td><td style="padding:3.5px 8px">$18,000 / unit</td></tr>
+            <tr><td style="padding:3.5px 8px">Electrical panel upgrade</td><td style="padding:3.5px 8px">—</td><td style="padding:3.5px 8px">Buyer scope</td><td style="padding:3.5px 8px">$42,000</td></tr>
+            <tr class="sum"><td style="padding:4px 8px">Identified remaining scope</td><td></td><td></td><td style="padding:4px 8px">$204,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">05</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. LOCATION ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 03</div><div class="sect">Location &amp; Submarket</div></div>
+      <div class="tag">Van Nuys · San Fernando Valley</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="mapfr" style="width:100%;height:430px">
+        <img class="tile" src="assets/tiles/loc_15_5600_13068.png" style="left:-195px; top:-108px;">
+        <img class="tile" src="assets/tiles/loc_15_5600_13069.png" style="left:-195px; top:148px;">
+        <img class="tile" src="assets/tiles/loc_15_5600_13070.png" style="left:-195px; top:404px;">
+        <img class="tile" src="assets/tiles/loc_15_5601_13068.png" style="left:61px; top:-108px;">
+        <img class="tile" src="assets/tiles/loc_15_5601_13069.png" style="left:61px; top:148px;">
+        <img class="tile" src="assets/tiles/loc_15_5601_13070.png" style="left:61px; top:404px;">
+        <img class="tile" src="assets/tiles/loc_15_5602_13068.png" style="left:317px; top:-108px;">
+        <img class="tile" src="assets/tiles/loc_15_5602_13069.png" style="left:317px; top:148px;">
+        <img class="tile" src="assets/tiles/loc_15_5602_13070.png" style="left:317px; top:404px;">
+        <img class="tile" src="assets/tiles/loc_15_5603_13068.png" style="left:573px; top:-108px;">
+        <img class="tile" src="assets/tiles/loc_15_5603_13069.png" style="left:573px; top:148px;">
+        <img class="tile" src="assets/tiles/loc_15_5603_13070.png" style="left:573px; top:404px;">
+        <img class="tile" src="assets/tiles/loc_15_5604_13068.png" style="left:829px; top:-108px;">
+        <img class="tile" src="assets/tiles/loc_15_5604_13069.png" style="left:829px; top:148px;">
+        <img class="tile" src="assets/tiles/loc_15_5604_13070.png" style="left:829px; top:404px;">
+        <span class="pin subj" style="left:450px; top:215px;">S</span>
+        <span class="mapattr">&copy; OpenStreetMap contributors &middot; &copy; CARTO</span>
+      </div>
+      <div class="tiles" style="grid-template-columns:repeat(4,1fr)">
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Median HH Income</div><div class="v" style="font-size:19px">$71,400</div><div class="sub">3-mile radius</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Renter Households</div><div class="v" style="font-size:19px">62%</div><div class="sub">vs. 46% county</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Population</div><div class="v" style="font-size:19px">318,600</div><div class="sub">3-mile radius</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Submarket Vacancy</div><div class="v" style="font-size:19px">3.1%</div><div class="sub">Trailing four quarters</div></div>
+      </div>
+      <div class="notes">
+        <h4>Notes</h4>
+        <p>Demographic and vacancy figures shown are illustrative placeholders for this sample and
+        are not sourced. In a live engagement these are pulled from Census/ACS for the subject ZIP
+        against city and county benchmarks, and submarket vacancy from the client's chosen data
+        provider, with the source named in this footnote.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">06</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. PHOTOGRAPHS ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 04</div><div class="sect">Property Photographs</div></div>
+      <div class="tag">Exterior &amp; Interior</div>
+    </div>
+    <div class="body" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px 16px">
+      <div class="ph"><img src="assets/photo-1.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Courtyard — looking north</div></div>
+      <div class="ph"><img src="assets/photo-2.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Renovated 2BR — kitchen</div></div>
+      <div class="ph"><img src="assets/photo-3.jpg" onerror="this.remove()" alt=""><div class="ph-tag">ADU conversion — living area</div></div>
+      <div class="ph"><img src="assets/photo-4.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Carport &amp; secured entry</div></div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">07</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. HIGHLIGHTS ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 05</div><div class="sect">Investment Highlights</div></div>
+      <div class="tag">The Thesis</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:13px">
+      <div class="kpis">
+        <div class="k"><div class="v acc">15.2%</div><div class="l">Rent Upside</div></div>
+        <div class="k"><div class="v">$61,800</div><div class="l">Annual GSR Gap</div></div>
+        <div class="k"><div class="v">5.42%</div><div class="l">Going-In Cap</div></div>
+        <div class="k"><div class="v acc">6.82%</div><div class="l">Pro Forma Cap</div></div>
+        <div class="k"><div class="v">1.29x</div><div class="l">DSCR at 60% LTV</div></div>
+        <div class="k"><div class="v">$269K</div><div class="l">Price / Unit</div></div>
+      </div>
+      <div class="hl-grid" style="flex:1">
+        <div class="hl-card"><div class="chip">1</div><div class="tx"><b>15.2% embedded rent upside</b><span>In-place rents average $1,877 against a surveyed submarket average of $2,163 for comparable product — a $61,800 annual gap requiring no change to the physical plant beyond turn-cost renovation.</span></div></div>
+        <div class="hl-card"><div class="chip">2</div><div class="tx"><b>Two completed ADU conversions</b><span>Permitted in 2024 with certificates of occupancy issued, leased at $2,450. The conversions added income without adding land, and establish the template for two further ground-floor storage areas.</span></div></div>
+        <div class="hl-card"><div class="chip">3</div><div class="tx"><b>Major capital already spent</b><span>Roofs replaced 2021, main sewer lateral 2019, common-area LED retrofit 2023. The buyer inherits a deferred-maintenance profile weighted toward cosmetic unit turns rather than structural work.</span></div></div>
+        <div class="hl-card"><div class="chip">4</div><div class="tx"><b>Going-in yield above the comp set</b><span>The 5.42% going-in cap sits 20 basis points above the 5.22% five-comp average, and the 11.96 GRM is 0.34 turns cheaper than the 12.30 average.</span></div></div>
+        <div class="hl-card"><div class="chip">5</div><div class="tx"><b>Utility recovery already established</b><span>A ratio utility billing system introduced in 2023 recovers approximately 42% of owner-paid water, sewer, and trash. Bringing recovery to a market-standard 65% is a further identified expense saving.</span></div></div>
+        <div class="hl-card"><div class="chip">6</div><div class="tx"><b>Supply-constrained submarket</b><span>Trailing four-quarter vacancy of 3.1% against limited new multifamily deliveries in the immediate radius, with 62% renter-household penetration supporting absorption of renovated product.</span></div></div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">08</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. RENT ROLL ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 06</div><div class="sect">Rent Roll &amp; Unit Mix</div></div>
+      <div class="tag">As of Sample Date</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:11px">
+      <table>
+        <thead>
+          <tr><th>Unit</th><th>Type</th><th>SF</th><th>Status</th><th>In-Place Rent</th><th>Rent / SF</th><th>Market Rent</th><th>Upside</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>101</td><td>1BR / 1BA</td><td>620</td><td>Occupied</td><td>$1,545</td><td>$2.49</td><td>$1,850</td><td>$305</td></tr>
+          <tr><td>102</td><td>1BR / 1BA</td><td>620</td><td>Occupied</td><td>$1,595</td><td>$2.57</td><td>$1,850</td><td>$255</td></tr>
+          <tr><td>103</td><td>1BR / 1BA</td><td>620</td><td>Occupied</td><td>$1,620</td><td>$2.61</td><td>$1,850</td><td>$230</td></tr>
+          <tr><td>104</td><td>1BR / 1BA</td><td>620</td><td>Occupied</td><td>$1,620</td><td>$2.61</td><td>$1,850</td><td>$230</td></tr>
+          <tr><td>105</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,795</td><td>$2.14</td><td>$2,195</td><td>$400</td></tr>
+          <tr><td>106</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,795</td><td>$2.14</td><td>$2,195</td><td>$400</td></tr>
+          <tr><td>107</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,850</td><td>$2.20</td><td>$2,195</td><td>$345</td></tr>
+          <tr><td>108</td><td>2BR / 1BA</td><td>840</td><td>Renovated</td><td>$2,050</td><td>$2.44</td><td>$2,195</td><td>$145</td></tr>
+          <tr><td>201</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,795</td><td>$2.14</td><td>$2,195</td><td>$400</td></tr>
+          <tr><td>202</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,825</td><td>$2.17</td><td>$2,195</td><td>$370</td></tr>
+          <tr><td>203</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,850</td><td>$2.20</td><td>$2,195</td><td>$345</td></tr>
+          <tr><td>204</td><td>2BR / 1BA</td><td>840</td><td>Renovated</td><td>$2,050</td><td>$2.44</td><td>$2,195</td><td>$145</td></tr>
+          <tr><td>205</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,795</td><td>$2.14</td><td>$2,195</td><td>$400</td></tr>
+          <tr><td>206</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,825</td><td>$2.17</td><td>$2,195</td><td>$370</td></tr>
+          <tr><td>207</td><td>2BR / 1BA</td><td>840</td><td>Vacant</td><td>$1,875</td><td>$2.23</td><td>$2,195</td><td>$320</td></tr>
+          <tr><td>208</td><td>2BR / 1BA</td><td>840</td><td>Occupied</td><td>$1,995</td><td>$2.38</td><td>$2,195</td><td>$200</td></tr>
+          <tr class="hl"><td>A-1</td><td>2BR / 2BA · ADU</td><td>900</td><td>Occupied</td><td>$2,450</td><td>$2.72</td><td>$2,595</td><td>$145</td></tr>
+          <tr class="hl"><td>A-2</td><td>2BR / 2BA · ADU</td><td>900</td><td>Occupied</td><td>$2,450</td><td>$2.72</td><td>$2,595</td><td>$145</td></tr>
+          <tr class="sum"><td>Total / Avg</td><td>18 Units</td><td>14,360</td><td>94.4% Occ.</td><td>$33,780</td><td>$2.35</td><td>$38,930</td><td>$5,150</td></tr>
+        </tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:11px">
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Current Monthly</div><div class="v" style="font-size:18px">$33,780</div><div class="sub">$405,360 annual</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Pro Forma Monthly</div><div class="v" style="font-size:18px">$38,930</div><div class="sub">$467,160 annual</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Monthly Upside</div><div class="v" style="font-size:18px">$5,150</div><div class="sub">15.2% increase</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Avg Rent / SF</div><div class="v" style="font-size:18px">$2.35</div><div class="sub">$2.71 pro forma</div></div>
+      </div>
+      <p class="t-note" style="margin:0">Unit 207 is vacant and shown at asking rent; it is excluded from occupancy but included in
+      gross scheduled rent. ADU units A-1 and A-2 were permitted and issued certificates of occupancy in 2024. All figures are
+      invented for this sample.</p>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">09</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. INCOME & EXPENSE ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 07</div><div class="sect">Income &amp; Expense</div></div>
+      <div class="tag">Current vs. Pro Forma</div>
+    </div>
+    <div class="body grid2" style="gap:16px">
+      <div>
+        <div class="fbar">Summary</div>
+        <div class="frow"><span class="mut">Offering price</span><span>$4,850,000</span></div>
+        <div class="frow"><span class="mut">Price per unit</span><span>$269,444</span></div>
+        <div class="frow"><span class="mut">Price per rentable SF</span><span>$337.74</span></div>
+        <div class="frow"><span class="mut">Number of units</span><span>18</span></div>
+        <div class="frow"><span class="mut">Rentable area</span><span>14,360 SF</span></div>
+
+        <div class="fbar">Returns</div>
+        <div class="frow"><span class="mut">Current cap rate</span><span>5.42%</span></div>
+        <div class="frow"><span class="mut">Pro forma cap rate</span><span>6.82%</span></div>
+        <div class="frow"><span class="mut">Current GRM</span><span>11.96</span></div>
+        <div class="frow"><span class="mut">Pro forma GRM</span><span>10.38</span></div>
+        <div class="frow"><span class="mut">Cash-on-cash (current)</span><span>3.06%</span></div>
+        <div class="frow"><span class="mut">Cash-on-cash (pro forma)</span><span>6.53%</span></div>
+        <div class="frow tot"><span>Total return, year one</span><span>4.99%</span></div>
+
+        <div class="fbar">Financing</div>
+        <div class="frow"><span class="mut">Loan amount (60% LTV)</span><span>$2,910,000</span></div>
+        <div class="frow"><span class="mut">Down payment</span><span>$1,940,000</span></div>
+        <div class="frow"><span class="mut">Rate / amortisation</span><span>5.75% / 30 yr</span></div>
+        <div class="frow"><span class="mut">Annual debt service</span><span>$203,784</span></div>
+        <div class="frow"><span class="mut">Year-one principal paydown</span><span>$37,435</span></div>
+        <div class="frow tot"><span>Debt service coverage</span><span>1.29x</span></div>
+
+        <div class="fbar">Unit Mix</div>
+        <div class="frow"><span class="mut">4 &times; 1BR / 1BA · 620 SF</span><span>$1,595 → $1,850</span></div>
+        <div class="frow"><span class="mut">12 &times; 2BR / 1BA · 840 SF</span><span>$1,875 → $2,195</span></div>
+        <div class="frow"><span class="mut">2 &times; 2BR / 2BA · 900 SF</span><span>$2,450 → $2,595</span></div>
+      </div>
+
+      <div>
+        <div class="fbar">Income</div>
+        <div class="frow"><span class="mut">Gross scheduled rent</span><span>$405,360</span></div>
+        <div class="frow"><span class="mut">Less vacancy &amp; collection (3.0%)</span><span>($12,161)</span></div>
+        <div class="frow"><span class="mut">Laundry income</span><span>$5,400</span></div>
+        <div class="frow"><span class="mut">Utility reimbursement (RUBS)</span><span>$12,600</span></div>
+        <div class="frow"><span class="mut">Parking &amp; storage</span><span>$2,400</span></div>
+        <div class="frow tot"><span>Effective gross income</span><span>$413,599</span></div>
+
+        <div class="fbar">Expenses</div>
+        <div class="frow"><span class="mut">Real estate taxes (1.25%)</span><span>$60,625</span></div>
+        <div class="frow"><span class="mut">Insurance</span><span>$14,400</span></div>
+        <div class="frow"><span class="mut">Utilities — water, sewer, trash, gas</span><span>$26,800</span></div>
+        <div class="frow"><span class="mut">Repairs &amp; maintenance</span><span>$17,400</span></div>
+        <div class="frow"><span class="mut">Management (4.0% of EGI)</span><span>$16,544</span></div>
+        <div class="frow"><span class="mut">Landscaping</span><span>$3,600</span></div>
+        <div class="frow"><span class="mut">Pest control</span><span>$1,440</span></div>
+        <div class="frow"><span class="mut">Reserves ($250 / unit)</span><span>$4,500</span></div>
+        <div class="frow"><span class="mut">Administrative &amp; legal</span><span>$5,200</span></div>
+        <div class="frow tot"><span>Total operating expenses</span><span>$150,509</span></div>
+        <div class="frow"><span class="mut">Expenses per unit</span><span>$8,362</span></div>
+        <div class="frow"><span class="mut">Expense ratio (% of EGI)</span><span>36.4%</span></div>
+
+        <div class="fbar">Net Operating Income</div>
+        <div class="frow tot"><span>Current NOI</span><span>$263,090</span></div>
+        <div class="frow"><span class="mut">Less annual debt service</span><span>($203,784)</span></div>
+        <div class="frow tot"><span>Current pre-tax cash flow</span><span>$59,306</span></div>
+        <div class="frow" style="margin-top:6px"><span class="mut">Pro forma EGI</span><span>$475,945</span></div>
+        <div class="frow"><span class="mut">Pro forma operating expenses</span><span>$145,403</span></div>
+        <div class="frow tot"><span>Pro forma NOI</span><span>$330,542</span></div>
+        <div class="frow tot"><span>Pro forma cash flow</span><span>$126,758</span></div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">10</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. SALES COMPARABLES ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 08</div><div class="sect">Sales Comparables</div></div>
+      <div class="tag">Trailing 12 Months</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Address</th><th>Units</th><th>Yr Built</th><th>Sale Date</th><th>Sale Price</th><th>$ / Unit</th><th>$ / SF</th><th>Cap</th><th>GRM</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>14231 Sylvan St</td><td>16</td><td>1972</td><td>03/14/26</td><td>$4,320,000</td><td>$270,000</td><td>$332</td><td>5.15%</td><td>12.40</td></tr>
+          <tr><td>2</td><td>6725 Kester Ave</td><td>20</td><td>1965</td><td>01/22/26</td><td>$5,150,000</td><td>$257,500</td><td>$318</td><td>5.38%</td><td>12.10</td></tr>
+          <tr><td>3</td><td>14814 Victory Blvd</td><td>14</td><td>1978</td><td>04/09/26</td><td>$3,780,000</td><td>$270,000</td><td>$345</td><td>5.02%</td><td>12.80</td></tr>
+          <tr><td>4</td><td>6150 Woodman Ave</td><td>22</td><td>1969</td><td>11/14/25</td><td>$5,940,000</td><td>$270,000</td><td>$329</td><td>5.24%</td><td>12.20</td></tr>
+          <tr><td>5</td><td>13940 Vanowen St</td><td>18</td><td>1974</td><td>05/28/26</td><td>$4,725,000</td><td>$262,500</td><td>$326</td><td>5.31%</td><td>12.00</td></tr>
+          <tr class="sum"><td></td><td>Comparable Average</td><td>18</td><td>1972</td><td>—</td><td>$4,783,000</td><td>$266,000</td><td>$330</td><td>5.22%</td><td>12.30</td></tr>
+          <tr class="hl"><td>S</td><td>Marisol Court Apartments</td><td>18</td><td>1974</td><td>Offered</td><td>$4,850,000</td><td>$269,444</td><td>$338</td><td>5.42%</td><td>11.96</td></tr>
+        </tbody>
+      </table>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div class="mapfr" style="width:100%;height:100%">
+          <img class="tile" src="assets/tiles/cmp_14_2800_6533.png" style="left:-12px; top:-253px;">
+          <img class="tile" src="assets/tiles/cmp_14_2800_6534.png" style="left:-12px; top:3px;">
+          <img class="tile" src="assets/tiles/cmp_14_2800_6535.png" style="left:-12px; top:259px;">
+          <img class="tile" src="assets/tiles/cmp_14_2801_6533.png" style="left:244px; top:-253px;">
+          <img class="tile" src="assets/tiles/cmp_14_2801_6534.png" style="left:244px; top:3px;">
+          <img class="tile" src="assets/tiles/cmp_14_2801_6535.png" style="left:244px; top:259px;">
+          <img class="tile" src="assets/tiles/cmp_14_2802_6533.png" style="left:500px; top:-253px;">
+          <img class="tile" src="assets/tiles/cmp_14_2802_6534.png" style="left:500px; top:3px;">
+          <img class="tile" src="assets/tiles/cmp_14_2802_6535.png" style="left:500px; top:259px;">
+          <span class="pin subj" style="left:310px; top:165px;">S</span>
+          <span class="pin" style="left:411px; top:69px;">1</span>
+          <span class="pin" style="left:214px; top:275px;">2</span>
+          <span class="pin" style="left:160px; top:116px;">3</span>
+          <span class="pin" style="left:459px; top:242px;">4</span>
+          <span class="pin" style="left:268px; top:37px;">5</span>
+          <span class="mapattr">&copy; OpenStreetMap contributors &middot; &copy; CARTO</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Subject $ / Unit</div><div class="v" style="font-size:17px;color:var(--accent)">$269,444</div><div class="sub">Avg $266,000</div></div>
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Subject Cap</div><div class="v" style="font-size:17px;color:var(--accent)">5.42%</div><div class="sub">Avg 5.22%</div></div>
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Subject $ / SF</div><div class="v" style="font-size:17px">$338</div><div class="sub">Avg $330</div></div>
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Subject GRM</div><div class="v" style="font-size:17px">11.96</div><div class="sub">Avg 12.30</div></div>
+          </div>
+          <div class="notes" style="flex:1">
+            <h4>Notes</h4>
+            <p>The subject prices 1.3% above the comparable average on a per-unit basis while
+            delivering 20 basis points of additional going-in yield and trading 0.34 turns
+            below the average gross rent multiplier. The premium per unit is attributable to
+            the two ADU conversions, which carry full 2BR/2BA rents on 900 square feet of
+            newly permitted area not present in the comparable set. The subject's units average 798
+            square feet against a comp-set average of 806, which is why the per-square-foot
+            figure sits above the average while the per-unit figure sits close to it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">11</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. RENT COMPARABLES ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 09</div><div class="sect">Rent Comparables</div></div>
+      <div class="tag">Two-Bedroom Survey</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Address</th><th>Yr Built</th><th>Type</th><th>SF</th><th>Asking Rent</th><th>Rent / SF</th><th>Laundry</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>14420 Gilmore St</td><td>1968</td><td>2BR / 1BA</td><td>850</td><td>$2,150</td><td>$2.53</td><td>Common</td></tr>
+          <tr><td>2</td><td>6640 Sepulveda Blvd</td><td>1979</td><td>2BR / 2BA</td><td>900</td><td>$2,395</td><td>$2.66</td><td>In-unit</td></tr>
+          <tr><td>3</td><td>14105 Hamlin St</td><td>1971</td><td>2BR / 1BA</td><td>820</td><td>$2,095</td><td>$2.55</td><td>Common</td></tr>
+          <tr><td>4</td><td>6905 Densmore Ave</td><td>1975</td><td>2BR / 1BA</td><td>875</td><td>$2,250</td><td>$2.57</td><td>Common</td></tr>
+          <tr><td>5</td><td>13725 Erwin St</td><td>1981</td><td>2BR / 2BA</td><td>940</td><td>$2,495</td><td>$2.65</td><td>In-unit</td></tr>
+          <tr class="sum"><td></td><td>Comparable Average</td><td>1975</td><td>—</td><td>877</td><td>$2,277</td><td>$2.59</td><td>—</td></tr>
+          <tr class="hl"><td>S</td><td>Marisol Court — 2BR / 1BA pro forma</td><td>1974</td><td>2BR / 1BA</td><td>840</td><td>$2,195</td><td>$2.61</td><td>Common</td></tr>
+          <tr class="hl"><td>S</td><td>Marisol Court — ADU pro forma</td><td>2024</td><td>2BR / 2BA</td><td>900</td><td>$2,595</td><td>$2.88</td><td>In-unit</td></tr>
+        </tbody>
+      </table>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start">
+          <div class="tile-c" style="padding:9px 12px"><div class="l">2BR / 1BA Comp Avg</div><div class="v" style="font-size:17px">$2,165</div><div class="sub">Three comparables</div></div>
+          <div class="tile-c" style="padding:9px 12px"><div class="l">2BR / 2BA Comp Avg</div><div class="v" style="font-size:17px">$2,445</div><div class="sub">Two comparables</div></div>
+          <div class="tile-c" style="padding:9px 12px"><div class="l">Subject In-Place Avg</div><div class="v" style="font-size:17px">$1,877</div><div class="sub">All 18 units</div></div>
+          <div class="tile-c" style="padding:9px 12px"><div class="l">Gap to Market</div><div class="v" style="font-size:17px;color:var(--accent)">15.2%</div><div class="sub">$5,150 monthly</div></div>
+        </div>
+        <div class="notes">
+          <h4>Notes</h4>
+          <p>Pro forma two-bedroom rent of $2,195 is set $30 above the three-comparable
+          2BR/1BA average of $2,165, supported by post-renovation finish level — quartz
+          counters, LVP flooring, and stacked in-unit laundry — which none of the three
+          common-laundry comparables offer. The ADU pro forma of $2,595 sits $150 above the
+          2BR/2BA average, reflecting 2024 construction against a 1979–1981 comparable set.
+          In a live engagement each comparable is hyperlinked to its source listing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">12</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13. MARKET OVERVIEW ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 10</div><div class="sect">Market Overview</div></div>
+      <div class="tag">Employment &amp; Demand Drivers</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <p class="lead" style="margin:0">
+        A central San Fernando Valley location with employment anchored in healthcare,
+        entertainment production, and light industrial — sectors that concentrate the
+        moderate-income renter household this asset serves.
+      </p>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div class="panel" style="display:flex;flex-direction:column">
+          <h3>Major Employment Sectors</h3>
+          <div style="font-size:9.5px;line-height:1.55;color:var(--muted)">
+            <div style="margin-bottom:9px">
+              <b style="color:var(--navy);font-size:10px;display:block">Healthcare</b>
+              Regional medical centre, ambulatory surgical network, and skilled-nursing
+              operators — the submarket's largest and most recession-resilient employment base.
+            </div>
+            <div style="margin-bottom:9px">
+              <b style="color:var(--navy);font-size:10px;display:block">Entertainment Production</b>
+              Post-production, sound stage, and equipment-rental facilities clustered along the
+              Burbank and Studio City corridors, drawing crew-level renters valuing commute time.
+            </div>
+            <div style="margin-bottom:9px">
+              <b style="color:var(--navy);font-size:10px;display:block">Light Industrial &amp; Logistics</b>
+              Warehouse and last-mile distribution along the Sepulveda and San Fernando Road
+              corridors, supporting steady demand for workforce housing.
+            </div>
+            <div>
+              <b style="color:var(--navy);font-size:10px;display:block">Municipal &amp; Civic</b>
+              Government offices, courts, and a regional transit hub within a two-mile radius.
+            </div>
+          </div>
+          <p class="t-note" style="margin-top:auto">Sector descriptions are illustrative for this sample.
+          A live engagement names specific employers with headcount and source.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+            <div class="panel" style="padding:11px 13px">
+              <h3 style="font-size:11.5px;margin-bottom:5px">Freeway Access</h3>
+              <div style="font-size:9.5px;color:var(--muted);line-height:1.5">
+                Interstate 405 within 1.2 miles; US-101 within 2.4 miles — direct access to the
+                Westside and Downtown employment cores.
+              </div>
+            </div>
+            <div class="panel" style="padding:11px 13px">
+              <h3 style="font-size:11.5px;margin-bottom:5px">Transit</h3>
+              <div style="font-size:9.5px;color:var(--muted);line-height:1.5">
+                Regional bus rapid transit on the Van Nuys corridor with planned light-rail
+                connection through the Sepulveda Pass.
+              </div>
+            </div>
+            <div class="panel" style="padding:11px 13px">
+              <h3 style="font-size:11.5px;margin-bottom:5px">New Supply</h3>
+              <div style="font-size:9.5px;color:var(--muted);line-height:1.5">
+                Limited multifamily deliveries within the immediate radius; new construction
+                concentrated in larger transit-oriented parcels, not garden product.
+              </div>
+            </div>
+            <div class="panel" style="padding:11px 13px">
+              <h3 style="font-size:11.5px;margin-bottom:5px">Renter Profile</h3>
+              <div style="font-size:9.5px;color:var(--muted);line-height:1.5">
+                62% renter-household penetration against 46% county-wide, with median household
+                income supporting the pro forma rent band.
+              </div>
+            </div>
+          </div>
+          <div class="notes" style="flex:1">
+            <h4>Notes</h4>
+            <p>Every figure and description on this page is invented for this sample. In a live
+            engagement, employment data is sourced from the client's chosen provider or public
+            labour statistics, demographics from Census/ACS at the subject ZIP against city and
+            county benchmarks, and supply data from the client's market research subscription —
+            each named in this footnote so a buyer's analyst can trace it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Weston Ridge Commercial</div>
+      <div>Marisol Court Apartments · Van Nuys, CA</div>
+      <div class="pg">13</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. BACK COVER ============ -->
+<section class="page cover">
+  <div class="frame"></div>
+  <div class="cover-top">
+    <div class="brandmark">Weston Ridge<span>Commercial</span></div>
+    <div class="om-tag">Sample Document</div>
+  </div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 .9in">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700">Exclusively Listed By</div>
+    <div style="font-family:'Playfair Display';font-size:46px;line-height:1.02;font-weight:600;color:#fff;margin-top:12px">
+      Weston Ridge<br><em style="color:var(--accent)">Commercial.</em>
+    </div>
+    <div style="height:2px;width:64px;background:var(--accent);margin:22px 0"></div>
+    <div style="display:flex;gap:64px">
+      <div style="font-size:10.5px;color:rgba(255,255,255,.88);line-height:1.75">
+        <b style="font-size:13px;color:#fff;font-family:'Playfair Display'">Dana Whitfield</b><br>
+        Principal, Multifamily Investments<br>
+        CA DRE #01999901<br>(818) 555-0140<br>dana.whitfield@westonridge.example
+      </div>
+      <div style="font-size:10.5px;color:rgba(255,255,255,.88);line-height:1.75">
+        <b style="font-size:13px;color:#fff;font-family:'Playfair Display'">Andre Cortez</b><br>
+        Director, Investment Sales<br>
+        CA DRE #01999902<br>(818) 555-0141<br>andre.cortez@westonridge.example
+      </div>
+    </div>
+    <div style="margin-top:34px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)">
+      15250 Ventura Boulevard, Suite 400 &nbsp;·&nbsp; Sherman Oaks, CA 91403
+    </div>
+  </div>
+  <div style="position:absolute;left:.9in;right:.9in;bottom:.5in;font-size:8px;line-height:1.7;color:rgba(255,255,255,.44)">
+    Sample document produced by Offering Studio for portfolio purposes. Marisol Court Apartments,
+    Weston Ridge Commercial, and all persons, licence numbers, addresses, rents, expenses, and
+    comparables shown are fictional. Photography does not depict any described property.
+    Basemaps &copy; OpenStreetMap contributors &middot; &copy; CARTO.<br>
+    Photography via Unsplash — Zachary Keimig, Long Vu, Alex Reynolds, Salvo Media LLC,
+    Med Badr Chemmaoui, Ian Shoemaker, hajperlink.
+  </div>
+</section>
+
+</div>
+</body>
+</html>
