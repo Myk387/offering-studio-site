@@ -166,6 +166,12 @@ section{padding:clamp(64px,9vw,118px) 0}
 .work-meta{padding:18px 22px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .work-meta strong{display:block;font-size:14.5px;font-weight:600}
 .work-meta > div > span{display:block;font-size:12.5px;color:var(--ink-mute);margin-top:3px}
+.work-link{display:block;text-decoration:none;color:inherit}
+.styles{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:0 22px 20px;font-size:13px}
+.styles span{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute)}
+.styles a{display:inline-flex;align-items:center;gap:7px;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}
+.styles a:hover{border-bottom-color:var(--ink)}
+.styles i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .pill{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
   color:var(--brass);border:1px solid var(--brass);padding:4px 9px;border-radius:99px;white-space:nowrap}
 
@@ -362,11 +368,14 @@ section{padding:clamp(64px,9vw,118px) 0}
       <h2>Sample books.</h2>
       <p class="lede" style="margin-top:18px">
         Full-length samples built on fictional properties. Every figure, address, and
-        name in them is invented for demonstration — real client work stays confidential.
+        name in them is invented for demonstration; real client work stays confidential.
+        Each sample comes in three house styles on the same deal, so you can compare the
+        look side by side. Your book is built in your own brand.
       </p>
     </div>
     <div class="g3">
-      <a class="work" href="samples/multifamily-offering.html">
+      <div class="work">
+        <a class="work-link" href="samples/multifamily-offering.html">
         <div class="work-thumb">
           <div class="k">Multifamily OM</div>
           <div>
@@ -379,7 +388,10 @@ section{padding:clamp(64px,9vw,118px) 0}
           <span class="pill">Sample</span>
         </div>
       </a>
-      <a class="work" href="samples/development-om.html">
+        <div class="styles"><span>House style</span><a href="samples/multifamily-offering.html"><i style="background:#12304F"></i>Classic</a><a href="samples/multifamily-offering-modern.html"><i style="background:#1F8A70"></i>Modern</a><a href="samples/multifamily-offering-editorial.html"><i style="background:#B4532F"></i>Editorial</a></div>
+      </div>
+      <div class="work">
+        <a class="work-link" href="samples/development-om.html">
         <div class="work-thumb">
           <div class="k">Development OM</div>
           <div>
@@ -392,12 +404,15 @@ section{padding:clamp(64px,9vw,118px) 0}
           <span class="pill">Sample</span>
         </div>
       </a>
-      <a class="work" href="samples/bov.html">
+        <div class="styles"><span>House style</span><a href="samples/development-om.html"><i style="background:#12304F"></i>Classic</a><a href="samples/development-om-modern.html"><i style="background:#1F8A70"></i>Modern</a><a href="samples/development-om-editorial.html"><i style="background:#B4532F"></i>Editorial</a></div>
+      </div>
+      <div class="work">
+        <a class="work-link" href="samples/bov.html">
         <div class="work-thumb">
           <div class="k">Broker Opinion of Value</div>
           <div>
             <div class="t">Pre-Listing<br><em>Valuation</em></div>
-            <div class="m" style="margin-top:10px">14 pages · Landscape</div>
+            <div class="m" style="margin-top:10px">16 pages · Landscape</div>
           </div>
         </div>
         <div class="work-meta">
@@ -405,6 +420,8 @@ section{padding:clamp(64px,9vw,118px) 0}
           <span class="pill">Sample</span>
         </div>
       </a>
+        <div class="styles"><span>House style</span><a href="samples/bov.html"><i style="background:#12304F"></i>Classic</a><a href="samples/bov-modern.html"><i style="background:#1F8A70"></i>Modern</a><a href="samples/bov-editorial.html"><i style="background:#B4532F"></i>Editorial</a></div>
+      </div>
     </div>
   </div>
 </section>

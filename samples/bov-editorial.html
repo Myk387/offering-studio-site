@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sample Broker Opinion of Value — Ridgeway Gardens Apartments (Editorial style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#12304F; --navy-deep:#0A1F36; --navy-soft:#1F4A75;
+    --cream:#F6F5F2; --cream-2:#EAE8E2;
+    --accent:#B07C3C; --accent-deep:#8E6129;
+    --ink:#1B1F27; --muted:#6B7280; --line:#DCD9D2;
+    --pageW:11in; --pageH:8.5in;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#4A4E55}
+  body{font-family:var(--bf),sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  .toolbar{position:fixed;top:14px;right:14px;z-index:99;display:flex;gap:8px}
+  .toolbar button,.toolbar a{font-family:var(--bf);font-size:12px;font-weight:600;letter-spacing:.04em;border:none;border-radius:5px;
+    background:var(--accent);color:#fff;padding:9px 14px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);text-decoration:none}
+  .toolbar a{background:var(--navy)}
+  @media print{.toolbar{display:none}}
+
+  .deck{display:flex;flex-direction:column;align-items:center;gap:26px;padding:34px 14px 60px}
+  .page{width:var(--pageW);height:var(--pageH);background:var(--cream);position:relative;overflow:hidden;
+    box-shadow:0 10px 38px rgba(0,0,0,.4)}
+  .page-pad{position:absolute;inset:0;padding:.5in .6in .4in;display:flex;flex-direction:column}
+  @page{size:11in 8.5in;margin:0}
+  @media print{.deck{gap:0;padding:0}.page{box-shadow:none;break-after:page}}
+
+  .sampleflag{position:absolute;top:26px;right:-46px;transform:rotate(38deg);z-index:20;
+    background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:.26em;
+    padding:5px 56px;opacity:.92;pointer-events:none}
+
+  .rh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1.5px solid var(--line);padding-bottom:8px;margin-bottom:15px}
+  .rh .eyebrow{font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .rh .sect{font-family:var(--hf);font-size:19px;color:var(--navy);font-weight:600;margin-top:2px}
+  .rh .tag{font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:right}
+  .rf{margin-top:12px;display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--line);padding-top:7px;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .rf .pg{color:var(--navy);font-weight:600}
+  .logo{display:flex;align-items:center;gap:7px;font-family:var(--hf);font-weight:600;color:var(--navy);font-size:13px}
+  .logo .dia{width:9px;height:9px;background:var(--accent);transform:rotate(45deg);display:inline-block}
+
+  h1,h2,h3{margin:0}
+  .body{flex:1;min-height:0;overflow:hidden}
+  p{line-height:1.5}
+  .eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .lead{font-family:var(--hf);font-size:15px;line-height:1.5;color:var(--navy);font-weight:500}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+  /* ---- cover ---- */
+  .cover{background:var(--navy-deep);color:#fff}
+  .cover .hero{position:absolute;inset:0}
+  .cover .hero img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) brightness(.9)}
+  .cover .grad{position:absolute;inset:0;background:linear-gradient(180deg,
+    rgba(10,31,54,.82) 0%,rgba(10,31,54,.42) 22%,rgba(10,31,54,.30) 45%,rgba(10,31,54,.92) 100%)}
+  .cover .frame{position:absolute;inset:.32in;border:1px solid rgba(255,255,255,.28);pointer-events:none}
+  .cover-top{position:absolute;top:.5in;left:.7in;right:.7in;display:flex;justify-content:space-between;align-items:center;z-index:3}
+  .om-tag{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .cover-divider{height:2px;width:64px;background:var(--accent)}
+  .cover-footer{position:absolute;left:0;right:0;bottom:0;padding:64px .7in .5in;z-index:3;
+    background:linear-gradient(0deg,rgba(10,31,54,.94) 14%,rgba(10,31,54,0) 100%)}
+  .cover-footer .cover-divider{margin:0 0 14px 2px}
+  .cf-title{font-family:var(--hf);font-size:50px;line-height:.97;font-weight:600;color:#fff;letter-spacing:-.01em}
+  .cf-title em{font-style:italic;color:var(--accent)}
+  .cf-addr{margin-top:14px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+  .cover-stats{display:flex;gap:46px;margin-top:24px}
+  .cover-stats .s .v{font-family:var(--hf);font-size:21px;font-weight:600;color:#fff}
+  .cover-stats .s .l{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:5px}
+  .brandmark{font-family:var(--hf);font-size:17px;font-weight:600;color:#fff;letter-spacing:.01em}
+  .brandmark span{display:block;font-family:var(--bf);font-size:7.5px;letter-spacing:.24em;color:var(--accent);font-weight:700;margin-top:3px}
+  .prepared{position:absolute;left:.7in;top:1.45in;z-index:3;font-size:9px;letter-spacing:.22em;
+    text-transform:uppercase;color:rgba(255,255,255,.72)}
+  .prepared b{display:block;font-family:var(--hf);font-size:15px;letter-spacing:0;
+    text-transform:none;color:#fff;font-weight:600;margin-top:5px}
+
+  /* ---- photo slots ---- */
+  .ph{position:relative;background:var(--navy-deep);overflow:hidden;display:flex;align-items:flex-end}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ph::before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;z-index:1;
+    background:linear-gradient(0deg,rgba(10,31,54,.88) 0%,rgba(10,31,54,.45) 45%,transparent 100%)}
+  .ph .ph-tag{position:relative;z-index:2;font-size:8px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.9);font-weight:600;padding:9px 11px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+  /* ---- tiles / kpis / tables ---- */
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .tile-c{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);padding:13px 15px}
+  .tile-c .l{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .tile-c .v{font-family:var(--hf);font-size:25px;font-weight:600;color:var(--navy);margin-top:5px;line-height:1}
+  .tile-c .sub{font-size:9px;color:var(--muted);margin-top:4px}
+
+  .specgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .speccard{background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px}
+  .speccard .l{font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .speccard .v{font-family:var(--hf);font-size:15px;font-weight:600;color:var(--navy);margin-top:6px;line-height:1.15}
+
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);background:var(--navy)}
+  .kpis .k{padding:13px 14px;border-left:1px solid rgba(255,255,255,.1)}
+  .kpis .k:first-child{border-left:none}
+  .kpis .k .v{font-family:var(--hf);font-size:21px;font-weight:600;color:#fff;line-height:1}
+  .kpis .k .v.acc{color:var(--accent)}
+  .kpis .k .l{font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:6px}
+
+  table{width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;border:1px solid var(--line)}
+  thead th{background:var(--navy);color:#fff;font-weight:600;text-align:right;padding:7px 9px;font-size:8.5px;
+    letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--accent)}
+  thead th:first-child{text-align:left}
+  tbody td{padding:5.5px 9px;text-align:right;border-bottom:1px solid var(--line);color:#2b323d}
+  tbody td:first-child{text-align:left;font-weight:500;color:var(--ink)}
+  tbody tr:nth-child(even){background:rgba(18,48,79,.035)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr.sum td{background:var(--cream-2);font-weight:700;color:var(--navy);border-top:1.5px solid var(--navy)}
+  tbody tr.hl td{background:rgba(176,124,60,.13);font-weight:600}
+  .t-note{font-size:8px;color:var(--muted);margin-top:7px;font-style:italic}
+
+  /* ---- setup sheet ---- */
+  .fbar{background:var(--navy);color:#fff;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;padding:5px 10px;border-bottom:2px solid var(--accent);margin-top:9px}
+  .fbar:first-child{margin-top:0}
+  .frow{display:flex;justify-content:space-between;font-size:9.5px;padding:3.5px 10px;border-bottom:1px solid var(--line);background:#fff}
+  .frow span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+  .frow.tot{background:var(--cream-2);font-weight:700;color:var(--navy)}
+  .frow.tot span:last-child{color:var(--navy)}
+  .frow .mut{color:var(--muted)}
+
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+  .hl-card{background:#fff;border:1px solid var(--line);border-radius:5px;padding:13px 15px;display:flex;gap:12px;align-items:flex-start}
+  .hl-card .chip{flex-shrink:0;width:24px;height:24px;border-radius:4px;background:var(--navy);color:#fff;
+    font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .hl-card .tx b{display:block;font-size:11px;color:var(--navy);font-weight:700;margin-bottom:3px}
+  .hl-card .tx span{font-size:9.5px;color:var(--muted);line-height:1.45}
+
+  .panel{background:#fff;border:1px solid var(--line);padding:13px 15px}
+  .panel h3{font-family:var(--hf);font-size:13px;color:var(--navy);font-weight:600;margin-bottom:8px}
+  .panel.accent{border-top:3px solid var(--accent)}
+  .dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:9.5px}
+  .dl dt{color:var(--muted)}
+  .dl dd{margin:0;text-align:right;font-weight:600;color:var(--ink)}
+  .notes{background:var(--navy-deep);color:#fff;padding:12px 14px;border-left:3px solid var(--accent)}
+  .notes h4{margin:0 0 6px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .notes p{margin:0;font-size:9.5px;line-height:1.55;color:rgba(255,255,255,.86)}
+
+  /* ---- maps ---- */
+  .mapfr{position:relative;overflow:hidden;border:1px solid var(--line);background:#e8e6e1}
+  .mapfr img.tile{position:absolute;width:256px;height:256px}
+  .pin{position:absolute;transform:translate(-50%,-50%);width:19px;height:19px;border-radius:50%;
+    background:var(--navy);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;
+    justify-content:center;box-shadow:0 1px 5px rgba(0,0,0,.4);border:1.5px solid #fff;z-index:5}
+  .pin.subj{background:var(--accent);width:23px;height:23px;font-size:10px}
+  .mapattr{position:absolute;right:4px;bottom:3px;z-index:6;font-size:6.5px;color:#5a6068;
+    background:rgba(255,255,255,.78);padding:1px 5px;border-radius:2px;letter-spacing:.02em}
+
+  .toc-l{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .toc-l .n{font-family:var(--hf);color:var(--accent);font-weight:700;width:24px}
+  .toc-l .t{color:var(--navy);font-weight:600}
+  .toc-l .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-3px)}
+  .toc-l .p{color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums}
+
+  /* ---- BOV-specific: value range + timeline ---- */
+  .vrange{background:var(--navy);color:#fff;padding:26px 30px;display:flex;align-items:center;
+    justify-content:space-between;border-bottom:3px solid var(--accent)}
+  .vrange .end{text-align:center}
+  .vrange .end .l{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:600}
+  .vrange .end .v{font-family:var(--hf);font-size:30px;font-weight:600;margin-top:6px;color:rgba(255,255,255,.9)}
+  .vrange .mid{text-align:center;padding:0 26px}
+  .vrange .mid .l{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .vrange .mid .v{font-family:var(--hf);font-size:50px;font-weight:600;margin-top:6px;line-height:1;color:#fff}
+  .vrange .mid .s{font-size:9px;color:rgba(255,255,255,.7);margin-top:8px;letter-spacing:.08em}
+  .vbar{height:6px;background:linear-gradient(90deg,var(--navy-soft),var(--accent),var(--navy-soft));margin:0}
+
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4px}
+  .tl .st{border-top:3px solid var(--accent);padding:13px 15px 0;position:relative}
+  .tl .st:not(:last-child){border-right:1px solid var(--line)}
+  .tl .st .wk{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .tl .st h4{font-family:var(--hf);font-size:14px;color:var(--navy);margin:6px 0 7px;font-weight:600}
+  .tl .st ul{margin:0;padding-left:14px}
+  .tl .st li{font-size:9px;color:var(--muted);line-height:1.5;margin-bottom:4px}
+
+:root{--hf:'Fraunces',serif;--bf:'IBM Plex Sans',sans-serif;
+  --navy:#1C1B19;--navy-deep:#161513;--navy-soft:#4A4640;--cream:#FAF7F1;--cream-2:#F1ECE3;
+  --accent:#B4532F;--accent-deep:#8E3F22;--ink:#1C1B19;--muted:#716B62;--line:#E0D9CD}
+html,body{background:#3B3833}
+.rh .sect,.sh .t,.tile-c .v,.tl-c .v,.kpis .k .v{font-weight:500}
+.rh{border-bottom:2px solid var(--ink)}
+.sh{border-bottom:3px solid var(--ink)}
+.rf,.sf{border-top-color:var(--ink)}
+.logo .dia{transform:none;border-radius:50%}
+/* cover: full photo, paper card bottom-left */
+.cover .grad{background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.25) 18%,rgba(0,0,0,0) 32%)}
+.om-tag,.brandmark span{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.cover .frame{display:none}
+.cover .hero img{filter:none}
+.cover-footer{left:.55in;right:auto;bottom:.55in;width:6.4in;background:var(--cream);padding:.38in .45in .4in}
+.cover-foot{left:104px;right:auto;bottom:96px;width:1080px;background:var(--cream);padding:64px 80px 70px}
+.cover-footer .cf-title{font-size:46px}
+.cf-title{color:var(--ink);font-weight:500}
+.cf-title em{color:var(--accent)}
+.cf-addr{color:var(--muted)}
+.cover-stats .s .v,.cstats .v{color:var(--ink)}
+.cover-stats .s .l,.cstats .l{color:var(--muted)}
+.cover-stats{gap:30px}
+.prepared{text-shadow:0 1px 6px rgba(0,0,0,.6)}
+/* tables: rules, no fills */
+table{border:none}
+thead th{background:transparent;color:var(--ink);border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+tbody tr:nth-child(even){background:transparent}
+tbody tr.sum td{background:transparent;color:var(--ink);border-top:1.5px solid var(--ink)}
+tbody tr.hl td{background:rgba(180,83,47,.10)}
+/* blocks */
+.tile-c,.tl-c{background:transparent;border:none;border-top:2px solid var(--ink)}
+.speccard,.hl-card,.panel{background:transparent;border:none;border-top:1px solid var(--ink);border-radius:0}
+.panel.accent{border-top:2px solid var(--accent)}
+.hl-card .chip{background:transparent;color:var(--accent);border:1.5px solid var(--accent);border-radius:50%}
+.notes{background:var(--cream-2);border-left-color:var(--accent)}
+.notes p{color:#3A3631}
+.notes h4{color:var(--accent-deep)}
+.kpis{background:var(--ink)}
+.fbar{background:transparent;color:var(--ink);border-bottom:1.5px solid var(--ink)}
+.frow{background:transparent}
+.vrange{background:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="../index.html">&larr; Offering Studio</a>
+  <button onclick="window.print()">&#10515; Print / Save PDF</button>
+</div>
+
+<div class="deck">
+
+<!-- ============ 1. COVER ============ -->
+<section class="page cover">
+  <div class="hero"><img src="assets/bov-cover.jpg" onerror="this.remove()" alt=""></div>
+  <div class="grad"></div>
+  <div class="frame"></div>
+  <div class="cover-top">
+    <div class="brandmark">Marlowe &amp; Finch<span>Property Advisors</span></div>
+    <div class="om-tag">Broker Opinion of Value</div>
+  </div>
+  <div class="prepared">Prepared for<b>The Ridgeway Family Trust</b></div>
+  <div class="cover-footer">
+    <div class="cover-divider"></div>
+    <div class="cf-title">Ridgeway Gardens<br><em>Apartments</em></div>
+    <div class="cf-addr">7340 Cantara Place &nbsp;·&nbsp; Reseda, CA 91335</div>
+    <div class="cover-stats">
+      <div class="s"><div class="v">$7,450,000</div><div class="l">Recommended List</div></div>
+      <div class="s"><div class="v">24</div><div class="l">Units</div></div>
+      <div class="s"><div class="v">5.21%</div><div class="l">Going-In Cap</div></div>
+      <div class="s"><div class="v">$310,417</div><div class="l">Per Unit</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. PREPARED FOR / DISCLAIMER ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Notice</div><div class="sect">Basis &amp; Limiting Conditions</div></div>
+      <div class="tag">Ridgeway Gardens Apartments</div>
+    </div>
+    <div class="body grid2">
+      <div>
+        <div class="panel accent" style="margin-bottom:14px">
+          <h3>Prepared By</h3>
+          <div style="font-size:10px;line-height:1.7">
+            <b style="color:var(--navy);font-size:11px">Celeste Marlowe</b><br>
+            Principal, Multifamily Investments<br>
+            CA DRE #01999905<br>
+            (626) 555-0118<br>
+            celeste.marlowe@marlowefinch.example
+          </div>
+          <div style="height:1px;background:var(--line);margin:11px 0"></div>
+          <div style="font-size:10px;line-height:1.7">
+            <b style="color:var(--navy);font-size:11px">Theo Okafor</b><br>
+            Director, Investment Sales<br>
+            CA DRE #01999906<br>
+            (626) 555-0119<br>
+            theo.okafor@marlowefinch.example
+          </div>
+          <div style="height:1px;background:var(--line);margin:11px 0"></div>
+          <div style="font-size:9px;color:var(--muted);line-height:1.6">
+            Marlowe &amp; Finch Property Advisors<br>
+            260 South Lake Avenue, Suite 210<br>
+            Pasadena, CA 91101
+          </div>
+        </div>
+        <div class="notes">
+          <h4>This is a sample document</h4>
+          <p>Ridgeway Gardens Apartments does not exist. The address, ownership, brokerage,
+          agents, license numbers, rents, expenses, comparables, and every financial figure
+          shown were invented to demonstrate document structure. Nothing here describes a real
+          property, a real opinion of value, or a real engagement.</p>
+        </div>
+      </div>
+      <div style="font-size:9.5px;line-height:1.62;color:#3a4150">
+        <p style="margin-top:0"><b style="color:var(--navy)">Purpose.</b> This Broker Opinion of
+        Value has been prepared at the request of ownership to assist in evaluating a potential
+        disposition. It sets out an opinion of the price the subject would most probably achieve
+        in an arm's-length sale, exposed to the open market for a reasonable period.</p>
+
+        <p><b style="color:var(--navy)">This is not an appraisal.</b> It has not been prepared in
+        conformance with the Uniform Standards of Professional Appraisal Practice, and the
+        preparers are licensed real estate brokers rather than certified appraisers. It may not be
+        relied upon for lending, litigation, taxation, estate, or regulatory purposes. Where a
+        certified valuation is required, ownership should engage a licensed appraiser.</p>
+
+        <p><b style="color:var(--navy)">Information relied upon.</b> The opinion rests on a rent
+        roll and trailing operating statements supplied by ownership, public assessor records, and
+        comparable transaction data obtained from third-party sources. None of this material has
+        been independently audited or verified. Should the rent roll, in-place rents, or operating
+        expenses differ materially from what was supplied, the conclusion will change.</p>
+
+        <p><b style="color:var(--navy)">Rent regulation.</b> The subject sits within a
+        jurisdiction subject to local rent-stabilization regulation. Allowable increases,
+        relocation obligations, and just-cause eviction requirements materially constrain the
+        pace at which the rent upside identified here can be realized. Ownership should confirm
+        the regulatory status of each unit with counsel.</p>
+
+        <p><b style="color:var(--navy)">Market conditions.</b> The conclusion reflects conditions
+        as of the date of preparation. Interest rates, credit availability, and buyer appetite in
+        this asset class move quickly; an opinion more than ninety days old should be refreshed
+        before it is acted upon.</p>
+
+        <p style="margin-bottom:0"><b style="color:var(--navy)">No obligation.</b> Delivery of
+        this document does not create an agency relationship or a listing agreement, and imposes
+        no obligation on either party.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">02</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. CONTENTS ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Prepared For Ownership</div><div class="sect">Table of Contents</div></div>
+      <div class="tag">24 Units · Reseda</div>
+    </div>
+    <div class="body grid2" style="gap:26px">
+      <div style="background:var(--navy);color:#fff;padding:26px;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700">Opinion of Value</div>
+          <div style="font-family:var(--hf);font-size:28px;line-height:1.06;font-weight:600;margin-top:14px">
+            Ridgeway Gardens<br><em style="color:var(--accent)">Apartments</em>
+          </div>
+          <div style="font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:12px">
+            7340 Cantara Place<br>Reseda, CA 91335
+          </div>
+          <p style="font-size:9.5px;line-height:1.6;color:rgba(255,255,255,.8);margin-top:18px">
+            A 24-unit garden apartment community held since 1998, carrying 11.2% of
+            embedded rent upside and priced into a comparable band that has traded five
+            times in the trailing twelve months.
+          </p>
+        </div>
+        <div>
+          <div style="height:2px;width:52px;background:var(--accent);margin-bottom:11px"></div>
+          <div style="font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6)">Prepared By</div>
+          <div style="font-size:11px;font-weight:600;margin-top:6px;line-height:1.6">Celeste Marlowe<br>Theo Okafor</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center">
+        <div class="toc-l"><span class="n">01</span><span class="t">Executive Summary</span><span class="dots"></span><span class="p">04</span></div>
+        <div class="toc-l"><span class="n">02</span><span class="t">Opinion of Value</span><span class="dots"></span><span class="p">05</span></div>
+        <div class="toc-l"><span class="n">03</span><span class="t">Pricing Matrix</span><span class="dots"></span><span class="p">06</span></div>
+        <div class="toc-l"><span class="n">04</span><span class="t">Property Overview</span><span class="dots"></span><span class="p">07</span></div>
+        <div class="toc-l"><span class="n">05</span><span class="t">Location &amp; Submarket</span><span class="dots"></span><span class="p">08</span></div>
+        <div class="toc-l"><span class="n">06</span><span class="t">Property Photographs</span><span class="dots"></span><span class="p">09</span></div>
+        <div class="toc-l"><span class="n">07</span><span class="t">Rent Roll &amp; Unit Mix</span><span class="dots"></span><span class="p">10</span></div>
+        <div class="toc-l"><span class="n">08</span><span class="t">Income &amp; Expense</span><span class="dots"></span><span class="p">11</span></div>
+        <div class="toc-l"><span class="n">09</span><span class="t">Sales Comparables</span><span class="dots"></span><span class="p">12</span></div>
+        <div class="toc-l"><span class="n">10</span><span class="t">Rent Comparables</span><span class="dots"></span><span class="p">13</span></div>
+        <div class="toc-l"><span class="n">11</span><span class="t">Marketing Process</span><span class="dots"></span><span class="p">14</span></div>
+        <div class="toc-l"><span class="n">12</span><span class="t">Why Marlowe &amp; Finch</span><span class="dots"></span><span class="p">15</span></div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">03</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. EXECUTIVE SUMMARY ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 01</div><div class="sect">Executive Summary</div></div>
+      <div class="tag">The Recommendation</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:13px">
+      <p class="lead" style="margin:0">
+        We recommend bringing Ridgeway Gardens to market at $7,450,000 — a 5.21% going-in
+        capitalization rate and $310,417 per unit — and expect a closed sale between
+        $7,250,000 and $7,650,000.
+      </p>
+      <div class="kpis">
+        <div class="k"><div class="v acc">$7.45M</div><div class="l">Recommended List</div></div>
+        <div class="k"><div class="v">5.21%</div><div class="l">Going-In Cap</div></div>
+        <div class="k"><div class="v">6.22%</div><div class="l">Pro Forma Cap</div></div>
+        <div class="k"><div class="v">12.57</div><div class="l">Current GRM</div></div>
+        <div class="k"><div class="v acc">11.2%</div><div class="l">Rent Upside</div></div>
+        <div class="k"><div class="v">$388K</div><div class="l">Current NOI</div></div>
+      </div>
+      <div class="hl-grid" style="flex:1">
+        <div class="hl-card"><div class="chip">1</div><div class="tx"><b>The comparable band is tight and active</b><span>Five comparable sales in the trailing twelve months cluster between $295,000 and $315,000 per unit at a 5.16% average cap. That is an unusually narrow band, and it means pricing risk here is low — buyers have recent evidence and will underwrite quickly.</span></div></div>
+        <div class="hl-card"><div class="chip">2</div><div class="tx"><b>11.2% of rent upside remains unharvested</b><span>In-place rents average $2,058 against a surveyed market of $2,288. That $5,520 monthly gap is the buyer's return story, and pricing at a 5.21% going-in cap lets them pay for the current income while underwriting the upside themselves.</span></div></div>
+        <div class="hl-card"><div class="chip">3</div><div class="tx"><b>1986 construction sits at the top of the comp set</b><span>Four of five comparables were built between 1979 and 1986. The subject's 1986 vintage, two-bathroom unit plans, and pool place it at the desirable end of that range — supporting per-unit pricing above the $309,000 average.</span></div></div>
+        <div class="hl-card"><div class="chip">4</div><div class="tx"><b>Price above the range and the market will tell you</b><span>Listing at $7,850,000 implies a 4.95% cap — inside no comparable in the set. Our experience is that assets priced through the band sit, accumulate days on market, and ultimately trade below where a correctly priced launch would have landed.</span></div></div>
+        <div class="hl-card"><div class="chip">5</div><div class="tx"><b>Expenses are already efficient</b><span>Operating at 35.4% of effective gross income and $8,879 per unit, the asset gives a buyer little room to underwrite expense savings. This supports the income but caps how aggressively a buyer can justify a lower cap rate.</span></div></div>
+        <div class="hl-card"><div class="chip">6</div><div class="tx"><b>Expected timeline: 13 weeks to close</b><span>Two weeks of preparation, three weeks of active marketing, a call for offers in week six, and a 21-day due diligence with a 30-day close. Detail on page 14.</span></div></div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">04</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. OPINION OF VALUE ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 02</div><div class="sect">Opinion of Value</div></div>
+      <div class="tag">Concluded Range</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:14px">
+      <div class="vrange">
+        <div class="end"><div class="l">Low — 5.50% Cap</div><div class="v">$7,060,000</div></div>
+        <div class="mid">
+          <div class="l">Recommended List Price</div>
+          <div class="v">$7,450,000</div>
+          <div class="s">5.21% going-in cap &nbsp;·&nbsp; $310,417 per unit &nbsp;·&nbsp; 12.57 GRM</div>
+        </div>
+        <div class="end"><div class="l">High — 5.00% Cap</div><div class="v">$7,766,000</div></div>
+      </div>
+      <div class="vbar"></div>
+      <div class="grid2" style="gap:16px;flex:1;min-height:0">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="panel">
+            <h3>How the range was derived</h3>
+            <p style="font-size:9.5px;color:var(--muted);margin:0 0 9px;line-height:1.55">
+              The concluded range applies the observed comparable capitalization band to the
+              subject's current net operating income of $388,314. The five comparable sales
+              transacted between a 5.02% and 5.34% cap, averaging 5.16%. We widened this to a
+              5.00%–5.50% band to reflect the spread of buyer cost of capital currently in the
+              market.
+            </p>
+            <dl class="dl">
+              <dt>Current net operating income</dt><dd>$388,314</dd>
+              <dt>Value at 5.00% cap</dt><dd>$7,766,000</dd>
+              <dt>Value at 5.25% cap</dt><dd>$7,396,000</dd>
+              <dt>Value at 5.50% cap</dt><dd>$7,060,000</dd>
+              <dt>Comparable average cap</dt><dd>5.16%</dd>
+              <dt>Comparable average per unit</dt><dd>$309,000</dd>
+            </dl>
+          </div>
+          <div class="panel" style="flex:1">
+            <h3>Where we would start</h3>
+            <p style="font-size:9.5px;color:var(--muted);margin:0;line-height:1.55">
+              We recommend listing at $7,450,000 rather than at the midpoint of the range. It
+              prices just above the comparable per-unit average — justified by the subject's
+              1986 vintage and two-bathroom plans — while remaining inside the cap band every
+              recent buyer has underwritten to. That combination generates competitive tension
+              at the call for offers rather than a single negotiated bid.
+            </p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="ph" style="flex:1;min-height:0">
+            <img src="assets/bov-ext.jpg" onerror="this.remove()" alt="">
+            <div class="ph-tag">Subject — street elevation</div>
+          </div>
+          <div class="notes">
+            <h4>What would move this conclusion</h4>
+            <p>A verified trailing-twelve operating statement materially different from the
+            figures supplied; confirmation that any in-place rent is not legally established;
+            deferred maintenance discovered on inspection; or a move of more than 50 basis
+            points in agency financing costs before launch. Each of these would warrant
+            refreshing the opinion before going to market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">05</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. PRICING MATRIX ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 03</div><div class="sect">Pricing Matrix</div></div>
+      <div class="tag">Sensitivity</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:13px">
+      <p style="font-size:10px;color:#3a4150;margin:0;line-height:1.6">
+        Each row holds the current net operating income of $388,314 constant and solves for the
+        return metrics a buyer sees at that price. The shaded row is our recommendation; the
+        comparable average cap of 5.16% falls between the $7,450,000 and $7,650,000 rows.
+      </p>
+      <table>
+        <thead>
+          <tr><th>List Price</th><th>Cap Rate</th><th>$ / Unit</th><th>$ / SF</th><th>GRM</th><th>Pro Forma Cap</th><th>Position vs. Comp Set</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>$7,050,000</td><td>5.51%</td><td>$293,750</td><td>$344.57</td><td>11.89</td><td>6.57%</td><td>Below every comparable — leaves value on the table</td></tr>
+          <tr><td>$7,250,000</td><td>5.36%</td><td>$302,083</td><td>$354.35</td><td>12.23</td><td>6.39%</td><td>Inside the band, priced to move quickly</td></tr>
+          <tr class="hl"><td>$7,450,000</td><td>5.21%</td><td>$310,417</td><td>$364.13</td><td>12.57</td><td>6.22%</td><td>Recommended — just above comp average per unit</td></tr>
+          <tr><td>$7,650,000</td><td>5.08%</td><td>$318,750</td><td>$373.90</td><td>12.90</td><td>6.05%</td><td>Achievable with a 1031 or long-hold buyer</td></tr>
+          <tr><td>$7,850,000</td><td>4.95%</td><td>$327,083</td><td>$383.68</td><td>13.24</td><td>5.90%</td><td>Through the band — expect extended days on market</td></tr>
+          <tr class="sum"><td>Comparable Avg</td><td>5.16%</td><td>$309,000</td><td>$356</td><td>12.63</td><td>—</td><td>Five sales, trailing twelve months</td></tr>
+        </tbody>
+      </table>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div class="panel">
+          <h3>Reading the matrix</h3>
+          <p style="font-size:9.5px;color:var(--muted);margin:0;line-height:1.6">
+            Buyers in this size band underwrite primarily to going-in cap rate and secondarily to
+            price per unit. The two metrics disagree slightly here: at $7,450,000 the subject is
+            0.5% above the comparable average per unit but 5 basis points wide of the average cap
+            — meaning it looks marginally expensive on a unit basis and marginally cheap on
+            yield. That is a favorable place to be, because the yield argument is the one a
+            lender and an investment committee test.
+          </p>
+        </div>
+        <div class="notes">
+          <h4>Notes</h4>
+          <p>Pro forma cap rates apply the pro forma net operating income of $463,053 to each
+          list price, and assume the full rent gap is captured. Rent stabilization will stage
+          that capture over several years; the pro forma column is therefore a stabilized
+          outcome, not a year-one result. Every figure on this page is invented for this
+          sample.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">06</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. PROPERTY OVERVIEW ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 04</div><div class="sect">Property Overview</div></div>
+      <div class="tag">Physical Description</div>
+    </div>
+    <div class="body">
+      <p class="lead" style="margin:0 0 13px">
+        Three two-story garden buildings around a central pool courtyard, built in 1986 on
+        just under an acre, with subterranean and open parking for 38 vehicles.
+      </p>
+      <p style="font-size:10px;color:#3a4150;margin:0 0 15px;line-height:1.6">
+        Held by the Ridgeway Family Trust since 1998 and professionally managed throughout.
+        Fourteen of twenty-four units have received partial interior updates since 2019; the
+        remaining ten retain original kitchens. All units are individually metered for gas and
+        electricity. The pool was resurfaced and re-plumbed in 2022 and carries a current
+        health-department permit.
+      </p>
+      <div class="specgrid">
+        <div class="speccard"><div class="l">Year Built</div><div class="v">1986</div></div>
+        <div class="speccard"><div class="l">Total Units</div><div class="v">24</div></div>
+        <div class="speccard"><div class="l">Rentable Area</div><div class="v">20,460 SF</div></div>
+        <div class="speccard"><div class="l">Lot Area</div><div class="v">41,800 SF</div></div>
+        <div class="speccard"><div class="l">Buildings</div><div class="v">3</div></div>
+        <div class="speccard"><div class="l">Stories</div><div class="v">Two</div></div>
+        <div class="speccard"><div class="l">Parking</div><div class="v">38 Spaces</div></div>
+        <div class="speccard"><div class="l">Construction</div><div class="v">Wood Frame / Stucco</div></div>
+        <div class="speccard"><div class="l">Roof</div><div class="v">Replaced 2018</div></div>
+        <div class="speccard"><div class="l">Pool</div><div class="v">Resurfaced 2022</div></div>
+        <div class="speccard"><div class="l">Metering</div><div class="v">Individual Gas &amp; Electric</div></div>
+        <div class="speccard"><div class="l">Zoning</div><div class="v">Multiple Residential</div></div>
+      </div>
+      <div class="grid2" style="margin-top:13px;gap:14px">
+        <div class="panel" style="padding:11px 14px">
+          <h3 style="font-size:12px;margin-bottom:6px">Unit Amenities</h3>
+          <div style="font-size:9.5px;color:var(--muted);line-height:1.7">
+            Private patio or balcony &nbsp;·&nbsp; Central heat &amp; air &nbsp;·&nbsp; Dishwasher<br>
+            Two full bathrooms in all 2BR and 3BR plans<br>
+            Updated units: granite counters, laminate flooring, new fixtures
+          </div>
+        </div>
+        <div class="panel" style="padding:11px 14px">
+          <h3 style="font-size:12px;margin-bottom:6px">Common Area</h3>
+          <div style="font-size:9.5px;color:var(--muted);line-height:1.7">
+            Heated swimming pool &amp; sun deck &nbsp;·&nbsp; Gated pedestrian entry<br>
+            Two on-site laundry rooms (leased equipment)<br>
+            Subterranean parking &nbsp;·&nbsp; Mature landscaped courtyard
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:11px;padding:10px 14px">
+        <h3 style="font-size:11.5px;margin-bottom:6px">Condition Notes for Pricing</h3>
+        <table style="border:none;font-size:9.5px">
+          <thead>
+            <tr><th style="padding:4px 8px">Item</th><th style="padding:4px 8px">Observed</th><th style="padding:4px 8px">Pricing Impact</th></tr>
+          </thead>
+          <tbody style="line-height:1.2">
+            <tr><td style="padding:3.5px 8px">Roof — three buildings</td><td style="padding:3.5px 8px">Replaced 2018, no visible defect</td><td style="padding:3.5px 8px">Neutral</td></tr>
+            <tr><td style="padding:3.5px 8px">Ten original-kitchen units</td><td style="padding:3.5px 8px">Dated but functional</td><td style="padding:3.5px 8px">Supports buyer upside story</td></tr>
+            <tr><td style="padding:3.5px 8px">Subterranean garage</td><td style="padding:3.5px 8px">Minor efflorescence, no spalling</td><td style="padding:3.5px 8px">Expect an inspection credit request</td></tr>
+            <tr><td style="padding:3.5px 8px">Pool equipment</td><td style="padding:3.5px 8px">Re-plumbed 2022, permit current</td><td style="padding:3.5px 8px">Neutral</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">07</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. LOCATION ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 05</div><div class="sect">Location &amp; Submarket</div></div>
+      <div class="tag">Reseda · West San Fernando Valley</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="mapfr" style="width:100%;height:400px">
+        <img class="tile" src="assets/tiles/usgs_15_5592_13066.jpg" style="left:-222px; top:-230px;">
+        <img class="tile" src="assets/tiles/usgs_15_5592_13067.jpg" style="left:-222px; top:26px;">
+        <img class="tile" src="assets/tiles/usgs_15_5592_13068.jpg" style="left:-222px; top:282px;">
+        <img class="tile" src="assets/tiles/usgs_15_5593_13066.jpg" style="left:34px; top:-230px;">
+        <img class="tile" src="assets/tiles/usgs_15_5593_13067.jpg" style="left:34px; top:26px;">
+        <img class="tile" src="assets/tiles/usgs_15_5593_13068.jpg" style="left:34px; top:282px;">
+        <img class="tile" src="assets/tiles/usgs_15_5594_13066.jpg" style="left:290px; top:-230px;">
+        <img class="tile" src="assets/tiles/usgs_15_5594_13067.jpg" style="left:290px; top:26px;">
+        <img class="tile" src="assets/tiles/usgs_15_5594_13068.jpg" style="left:290px; top:282px;">
+        <img class="tile" src="assets/tiles/usgs_15_5595_13066.jpg" style="left:546px; top:-230px;">
+        <img class="tile" src="assets/tiles/usgs_15_5595_13067.jpg" style="left:546px; top:26px;">
+        <img class="tile" src="assets/tiles/usgs_15_5595_13068.jpg" style="left:546px; top:282px;">
+        <img class="tile" src="assets/tiles/usgs_15_5596_13066.jpg" style="left:802px; top:-230px;">
+        <img class="tile" src="assets/tiles/usgs_15_5596_13067.jpg" style="left:802px; top:26px;">
+        <img class="tile" src="assets/tiles/usgs_15_5596_13068.jpg" style="left:802px; top:282px;">
+        <span class="pin subj" style="left:450px; top:200px;">S</span>
+        <span class="mapattr">Basemap: USGS The National Map</span>
+      </div>
+      <div class="tiles" style="grid-template-columns:repeat(4,1fr)">
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Median HH Income</div><div class="v" style="font-size:19px">$78,900</div><div class="sub">3-mile radius</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Renter Households</div><div class="v" style="font-size:19px">54%</div><div class="sub">vs. 46% county</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Population</div><div class="v" style="font-size:19px">241,300</div><div class="sub">3-mile radius</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Submarket Vacancy</div><div class="v" style="font-size:19px">3.6%</div><div class="sub">Trailing four quarters</div></div>
+      </div>
+      <div class="notes">
+        <h4>Notes</h4>
+        <p>Demographic and vacancy figures are illustrative placeholders for this sample and are
+        not sourced. In a live engagement these come from Census/ACS for the subject ZIP against
+        city and county benchmarks, with submarket vacancy from the client's data provider and the
+        source named here.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">08</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. PHOTOGRAPHS ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 06</div><div class="sect">Property Photographs</div></div>
+      <div class="tag">Exterior &amp; Interior</div>
+    </div>
+    <div class="body" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px 16px">
+      <div class="ph"><img src="assets/bov-ext.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Building A — street elevation</div></div>
+      <div class="ph"><img src="assets/bov-1.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Pool courtyard &amp; sun deck</div></div>
+      <div class="ph"><img src="assets/bov-2.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Updated 2BR — primary bedroom</div></div>
+      <div class="ph"><img src="assets/bov-3.jpg" onerror="this.remove()" alt=""><div class="ph-tag">Updated 2BR — bathroom</div></div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">09</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. RENT ROLL ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 07</div><div class="sect">Rent Roll &amp; Unit Mix</div></div>
+      <div class="tag">As Supplied By Ownership</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:11px">
+      <table>
+        <thead>
+          <tr><th>Plan</th><th>Count</th><th>SF Each</th><th>Total SF</th><th>In-Place Rent</th><th>Rent / SF</th><th>Market Rent</th><th>Monthly Gap</th><th>Annual Gap</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1BR / 1BA</td><td>8</td><td>660</td><td>5,280</td><td>$1,750</td><td>$2.65</td><td>$1,950</td><td>$1,600</td><td>$19,200</td></tr>
+          <tr><td>2BR / 2BA</td><td>14</td><td>920</td><td>12,880</td><td>$2,150</td><td>$2.34</td><td>$2,395</td><td>$3,430</td><td>$41,160</td></tr>
+          <tr><td>3BR / 2BA</td><td>2</td><td>1,150</td><td>2,300</td><td>$2,650</td><td>$2.30</td><td>$2,895</td><td>$490</td><td>$5,880</td></tr>
+          <tr class="sum"><td>Total / Weighted Avg</td><td>24</td><td>853</td><td>20,460</td><td>$2,058</td><td>$2.41</td><td>$2,288</td><td>$5,520</td><td>$66,240</td></tr>
+        </tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:11px">
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Current Monthly</div><div class="v" style="font-size:18px">$49,400</div><div class="sub">$592,800 annual</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Market Monthly</div><div class="v" style="font-size:18px">$54,920</div><div class="sub">$659,040 annual</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Monthly Gap</div><div class="v" style="font-size:18px;color:var(--accent)">$5,520</div><div class="sub">11.2% increase</div></div>
+        <div class="tile-c" style="padding:10px 13px"><div class="l">Occupancy</div><div class="v" style="font-size:18px">95.8%</div><div class="sub">23 of 24 occupied</div></div>
+      </div>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div class="panel">
+          <h3>What the gap is worth</h3>
+          <p style="font-size:9.5px;color:var(--muted);margin:0;line-height:1.6">
+            Capturing the full $66,240 annual gap would lift net operating income to $463,053
+            and, at the recommended list price, deliver a buyer a 6.22% stabilized return. That
+            is the number a buyer's investment committee will focus on, and it is why this asset
+            supports a going-in cap inside the comparable band despite in-place income that sits
+            below market.
+          </p>
+        </div>
+        <div class="notes">
+          <h4>Notes</h4>
+          <p>Presented by plan type rather than unit-by-unit, which is standard at the opinion
+          stage; a unit-level roll is produced for the offering memorandum once a listing is
+          signed. Rent stabilization limits annual increases on occupied units, so the gap is
+          captured primarily at turnover. Every figure here is invented for this sample.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">10</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. INCOME & EXPENSE ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 08</div><div class="sect">Income &amp; Expense</div></div>
+      <div class="tag">Current vs. Pro Forma</div>
+    </div>
+    <div class="body grid2" style="gap:16px">
+      <div>
+        <div class="fbar">Valuation Summary</div>
+        <div class="frow"><span class="mut">Recommended list price</span><span>$7,450,000</span></div>
+        <div class="frow"><span class="mut">Price per unit</span><span>$310,417</span></div>
+        <div class="frow"><span class="mut">Price per rentable SF</span><span>$364.13</span></div>
+        <div class="frow"><span class="mut">Number of units</span><span>24</span></div>
+        <div class="frow"><span class="mut">Rentable area</span><span>20,460 SF</span></div>
+
+        <div class="fbar">Returns</div>
+        <div class="frow"><span class="mut">Current cap rate</span><span>5.21%</span></div>
+        <div class="frow"><span class="mut">Pro forma cap rate</span><span>6.22%</span></div>
+        <div class="frow"><span class="mut">Current GRM</span><span>12.57</span></div>
+        <div class="frow"><span class="mut">Pro forma GRM</span><span>11.30</span></div>
+        <div class="frow tot"><span>Concluded value range</span><span>$7.06M – $7.77M</span></div>
+
+        <div class="fbar">Current Income</div>
+        <div class="frow"><span class="mut">Gross scheduled rent</span><span>$592,800</span></div>
+        <div class="frow"><span class="mut">Less vacancy &amp; collection (3.0%)</span><span>($17,784)</span></div>
+        <div class="frow"><span class="mut">Laundry income</span><span>$8,400</span></div>
+        <div class="frow"><span class="mut">Parking &amp; storage</span><span>$14,400</span></div>
+        <div class="frow"><span class="mut">Other income</span><span>$3,600</span></div>
+        <div class="frow tot"><span>Effective gross income</span><span>$601,416</span></div>
+
+        <div class="fbar">Unit Mix</div>
+        <div class="frow"><span class="mut">8 &times; 1BR / 1BA · 660 SF</span><span>$1,750 → $1,950</span></div>
+        <div class="frow"><span class="mut">14 &times; 2BR / 2BA · 920 SF</span><span>$2,150 → $2,395</span></div>
+        <div class="frow"><span class="mut">2 &times; 3BR / 2BA · 1,150 SF</span><span>$2,650 → $2,895</span></div>
+      </div>
+
+      <div>
+        <div class="fbar">Current Expenses</div>
+        <div class="frow"><span class="mut">Real estate taxes (1.25%)</span><span>$93,125</span></div>
+        <div class="frow"><span class="mut">Insurance</span><span>$19,200</span></div>
+        <div class="frow"><span class="mut">Utilities — water, sewer, trash</span><span>$33,600</span></div>
+        <div class="frow"><span class="mut">Repairs &amp; maintenance</span><span>$24,000</span></div>
+        <div class="frow"><span class="mut">Management (4.0% of EGI)</span><span>$24,057</span></div>
+        <div class="frow"><span class="mut">Landscaping &amp; pool</span><span>$4,800</span></div>
+        <div class="frow"><span class="mut">Pest control</span><span>$1,920</span></div>
+        <div class="frow"><span class="mut">Reserves ($250 / unit)</span><span>$6,000</span></div>
+        <div class="frow"><span class="mut">Administrative &amp; legal</span><span>$6,400</span></div>
+        <div class="frow tot"><span>Total operating expenses</span><span>$213,102</span></div>
+        <div class="frow"><span class="mut">Expenses per unit</span><span>$8,879</span></div>
+        <div class="frow"><span class="mut">Expense ratio (% of EGI)</span><span>35.4%</span></div>
+
+        <div class="fbar">Net Operating Income</div>
+        <div class="frow tot"><span>Current NOI</span><span>$388,314</span></div>
+
+        <div class="fbar">Pro Forma</div>
+        <div class="frow"><span class="mut">Gross scheduled rent</span><span>$659,040</span></div>
+        <div class="frow"><span class="mut">Less vacancy &amp; collection (3.0%)</span><span>($19,771)</span></div>
+        <div class="frow"><span class="mut">Other income</span><span>$30,000</span></div>
+        <div class="frow tot"><span>Pro forma EGI</span><span>$669,269</span></div>
+        <div class="frow"><span class="mut">Pro forma operating expenses</span><span>$206,216</span></div>
+        <div class="frow"><span class="mut">Pro forma expense ratio</span><span>30.8%</span></div>
+        <div class="frow tot"><span>Pro forma NOI</span><span>$463,053</span></div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">11</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. SALES COMPARABLES ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 09</div><div class="sect">Sales Comparables</div></div>
+      <div class="tag">Trailing 12 Months</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Address</th><th>Units</th><th>Yr Built</th><th>Sale Date</th><th>Sale Price</th><th>$ / Unit</th><th>$ / SF</th><th>Cap</th><th>GRM</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>7112 Etiwanda Ave</td><td>22</td><td>1984</td><td>02/20/26</td><td>$6,930,000</td><td>$315,000</td><td>$358</td><td>5.05%</td><td>12.90</td></tr>
+          <tr><td>2</td><td>18420 Sherman Way</td><td>28</td><td>1979</td><td>12/11/25</td><td>$8,260,000</td><td>$295,000</td><td>$341</td><td>5.34%</td><td>12.20</td></tr>
+          <tr><td>3</td><td>7825 Reseda Blvd</td><td>20</td><td>1988</td><td>04/28/26</td><td>$6,300,000</td><td>$315,000</td><td>$366</td><td>5.12%</td><td>12.75</td></tr>
+          <tr><td>4</td><td>18915 Vanowen St</td><td>26</td><td>1982</td><td>03/06/26</td><td>$7,930,000</td><td>$305,000</td><td>$352</td><td>5.22%</td><td>12.45</td></tr>
+          <tr><td>5</td><td>7550 Wilbur Ave</td><td>24</td><td>1986</td><td>05/15/26</td><td>$7,560,000</td><td>$315,000</td><td>$362</td><td>5.09%</td><td>12.85</td></tr>
+          <tr class="sum"><td></td><td>Comparable Average</td><td>24</td><td>1984</td><td>—</td><td>$7,396,000</td><td>$309,000</td><td>$356</td><td>5.16%</td><td>12.63</td></tr>
+          <tr class="hl"><td>S</td><td>Ridgeway Gardens — recommended</td><td>24</td><td>1986</td><td>Proposed</td><td>$7,450,000</td><td>$310,417</td><td>$364</td><td>5.21%</td><td>12.57</td></tr>
+        </tbody>
+      </table>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div class="mapfr" style="width:100%;height:100%">
+          <img class="tile" src="assets/tiles/usgs_14_2796_6533.jpg" style="left:-36px; top:-55px;">
+          <img class="tile" src="assets/tiles/usgs_14_2796_6534.jpg" style="left:-36px; top:201px;">
+          <img class="tile" src="assets/tiles/usgs_14_2797_6533.jpg" style="left:220px; top:-55px;">
+          <img class="tile" src="assets/tiles/usgs_14_2797_6534.jpg" style="left:220px; top:201px;">
+          <img class="tile" src="assets/tiles/usgs_14_2798_6533.jpg" style="left:476px; top:-55px;">
+          <img class="tile" src="assets/tiles/usgs_14_2798_6534.jpg" style="left:476px; top:201px;">
+          <span class="pin subj" style="left:300px; top:160px;">S</span>
+          <span class="pin" style="left:399px; top:52px;">1</span>
+          <span class="pin" style="left:200px; top:252px;">2</span>
+          <span class="pin" style="left:156px; top:126px;">3</span>
+          <span class="pin" style="left:437px; top:215px;">4</span>
+          <span class="pin" style="left:260px; top:21px;">5</span>
+          <span class="mapattr">Basemap: USGS The National Map</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Cap Band Observed</div><div class="v" style="font-size:17px;color:var(--accent)">5.05–5.34%</div><div class="sub">Avg 5.16%</div></div>
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Per-Unit Band</div><div class="v" style="font-size:17px">$295–315K</div><div class="sub">Avg $309,000</div></div>
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Subject Position</div><div class="v" style="font-size:17px">+0.5%</div><div class="sub">vs. avg per unit</div></div>
+            <div class="tile-c" style="padding:9px 12px"><div class="l">Sales Velocity</div><div class="v" style="font-size:17px">5 in 12 mo</div><div class="sub">Active comp set</div></div>
+          </div>
+          <div class="notes" style="flex:1">
+            <h4>Notes</h4>
+            <p>The comparable set was selected on unit count between 20 and 28, construction
+            between 1979 and 1988, and location within two miles of the subject. All five are
+            garden-style walk-ups with surface or subterranean parking. Comparable 2 at
+            $295,000 per unit is the 1979 vintage and the largest of the set, and prices at the
+            bottom of the band accordingly; comparable 5 is the closest match to the subject on
+            both count and vintage and supports the recommendation directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">12</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13. RENT COMPARABLES ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 10</div><div class="sect">Rent Comparables</div></div>
+      <div class="tag">Two-Bedroom Survey</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Address</th><th>Yr Built</th><th>Type</th><th>SF</th><th>Asking Rent</th><th>Rent / SF</th><th>Amenities</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>7240 Amigo Ave</td><td>1985</td><td>2BR / 2BA</td><td>900</td><td>$2,350</td><td>$2.61</td><td>Pool, gated</td></tr>
+          <tr><td>2</td><td>18110 Saticoy St</td><td>1988</td><td>2BR / 2BA</td><td>940</td><td>$2,425</td><td>$2.58</td><td>Pool, in-unit W/D</td></tr>
+          <tr><td>3</td><td>7615 Lindley Ave</td><td>1981</td><td>2BR / 2BA</td><td>880</td><td>$2,295</td><td>$2.61</td><td>Gated only</td></tr>
+          <tr><td>4</td><td>18740 Kittridge St</td><td>1990</td><td>2BR / 2BA</td><td>950</td><td>$2,450</td><td>$2.58</td><td>Pool, fitness</td></tr>
+          <tr><td>5</td><td>7020 Balboa Blvd</td><td>1984</td><td>2BR / 2BA</td><td>910</td><td>$2,375</td><td>$2.61</td><td>Pool, gated</td></tr>
+          <tr class="sum"><td></td><td>Comparable Average</td><td>1986</td><td>2BR / 2BA</td><td>916</td><td>$2,379</td><td>$2.60</td><td>—</td></tr>
+          <tr class="hl"><td>S</td><td>Ridgeway Gardens — in place</td><td>1986</td><td>2BR / 2BA</td><td>920</td><td>$2,150</td><td>$2.34</td><td>Pool, gated</td></tr>
+          <tr class="hl"><td>S</td><td>Ridgeway Gardens — market</td><td>1986</td><td>2BR / 2BA</td><td>920</td><td>$2,395</td><td>$2.60</td><td>Pool, gated</td></tr>
+        </tbody>
+      </table>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start">
+          <div class="tile-c" style="padding:9px 12px"><div class="l">Comp Avg Rent</div><div class="v" style="font-size:17px">$2,379</div><div class="sub">Five comparables</div></div>
+          <div class="tile-c" style="padding:9px 12px"><div class="l">Comp Avg $ / SF</div><div class="v" style="font-size:17px">$2.60</div><div class="sub">916 SF average</div></div>
+          <div class="tile-c" style="padding:9px 12px"><div class="l">Subject In Place</div><div class="v" style="font-size:17px">$2,150</div><div class="sub">$2.34 per SF</div></div>
+          <div class="tile-c" style="padding:9px 12px"><div class="l">Gap to Market</div><div class="v" style="font-size:17px;color:var(--accent)">$245</div><div class="sub">11.4% on the 2BR plan</div></div>
+        </div>
+        <div class="notes">
+          <h4>Notes</h4>
+          <p>The market rent of $2,395 is set at $2.60 per square foot — exactly the comparable
+          average — rather than at the top of the range. Comparables 2 and 4 achieve more on the
+          strength of in-unit laundry and a fitness room, neither of which the subject offers.
+          This is a deliberately conservative market rent: a buyer who discounts an aggressive
+          pro forma will discount the price, and the objective is a market rent the buyer's own
+          survey will confirm. Every figure here is invented for this sample.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">13</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. MARKETING PROCESS ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 11</div><div class="sect">Marketing Process</div></div>
+      <div class="tag">13 Weeks to Close</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:14px">
+      <p class="lead" style="margin:0">
+        A structured process with a fixed offer date. The objective is to create a single moment
+        of competition rather than a sequence of one-off negotiations.
+      </p>
+      <div class="tl">
+        <div class="st">
+          <div class="wk">Weeks 1–2</div>
+          <h4>Preparation</h4>
+          <ul>
+            <li>Professional photography and drone</li>
+            <li>Offering memorandum produced</li>
+            <li>Financial package assembled and reconciled to the trailing twelve</li>
+            <li>Title ordered and reviewed for disclosure items</li>
+            <li>Tenant notification plan agreed with ownership</li>
+          </ul>
+        </div>
+        <div class="st">
+          <div class="wk">Weeks 3–5</div>
+          <h4>Active Marketing</h4>
+          <ul>
+            <li>Launch to our buyer database and the major listing platforms</li>
+            <li>Direct outreach to 1031 exchange buyers in escrow</li>
+            <li>Broker-community distribution across the Valley</li>
+            <li>Scheduled property tours, twice weekly</li>
+            <li>Weekly written activity report to ownership</li>
+          </ul>
+        </div>
+        <div class="st">
+          <div class="wk">Week 6</div>
+          <h4>Call for Offers</h4>
+          <ul>
+            <li>Fixed offer deadline announced at launch</li>
+            <li>Offers summarized side by side on price, terms, and buyer credibility</li>
+            <li>Best and final round with shortlisted buyers</li>
+            <li>Ownership selects; letter of intent executed</li>
+          </ul>
+        </div>
+        <div class="st">
+          <div class="wk">Weeks 7–13</div>
+          <h4>Contract &amp; Close</h4>
+          <ul>
+            <li>Purchase agreement negotiated and signed</li>
+            <li>21-day due diligence with deposit released at expiration</li>
+            <li>Appraisal and lender coordination</li>
+            <li>30-day close following due diligence</li>
+            <li>Estoppels, rent roll certification, and transfer of deposits</li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid2" style="gap:14px;flex:1;min-height:0">
+        <div class="panel">
+          <h3>What we need from ownership</h3>
+          <div style="font-size:9.5px;color:var(--muted);line-height:1.65">
+            Certified rent roll and trailing-twelve operating statements &nbsp;·&nbsp; copies of all
+            leases and any written rent-increase notices &nbsp;·&nbsp; service contracts and the
+            laundry lease &nbsp;·&nbsp; most recent tax bill and insurance declaration &nbsp;·&nbsp;
+            any permits or plans for work performed since 1998 &nbsp;·&nbsp; access for photography
+            and scheduled tours with proper tenant notice.
+          </div>
+        </div>
+        <div class="panel accent">
+          <h3>Proposed Terms</h3>
+          <dl class="dl">
+            <dt>Listing term</dt><dd>Six months</dd>
+            <dt>Commission — total</dt><dd>4.0% of sale price</dd>
+            <dt>Cooperating broker share</dt><dd>2.0%</dd>
+            <dt>Marketing costs</dt><dd>Borne by Marlowe &amp; Finch</dd>
+            <dt>Photography &amp; OM production</dt><dd>Included</dd>
+            <dt>Cancellation</dt><dd>30 days' written notice, no fee</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="notes">
+        <h4>On the offer deadline</h4>
+        <p>A fixed offer date is the single most effective mechanism available to a seller in this
+        size band. It converts a sequence of individual negotiations, in which each buyer knows
+        only their own position, into one round in which every buyer must assume they are
+        competing. In our experience it is worth more than any amount of individual negotiation
+        after the fact — and it is only credible if the launch price sits inside the range buyers
+        can verify, which is the argument made on page 5.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">14</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 15. WHY WESTON RIDGE ============ -->
+<section class="page">
+  <div class="sampleflag">Sample</div>
+  <div class="page-pad">
+    <div class="rh">
+      <div><div class="eyebrow">Section 12</div><div class="sect">Why Marlowe &amp; Finch</div></div>
+      <div class="tag">The Engagement</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:13px">
+      <div class="kpis">
+        <div class="k"><div class="v acc">$412M</div><div class="l">Closed Volume</div></div>
+        <div class="k"><div class="v">148</div><div class="l">Transactions</div></div>
+        <div class="k"><div class="v">98.4%</div><div class="l">Of List Achieved</div></div>
+        <div class="k"><div class="v acc">42</div><div class="l">Avg Days to Contract</div></div>
+        <div class="k"><div class="v">91%</div><div class="l">Close Rate</div></div>
+        <div class="k"><div class="v">2,400+</div><div class="l">Buyer Database</div></div>
+      </div>
+      <div class="hl-grid" style="flex:1">
+        <div class="hl-card"><div class="chip">1</div><div class="tx"><b>Valley multifamily is all we do</b><span>Every transaction in the record above is a San Fernando Valley apartment building between ten and sixty units. We are not generalists who will learn your submarket on your listing.</span></div></div>
+        <div class="hl-card"><div class="chip">2</div><div class="tx"><b>The principals do the work</b><span>The two people who prepared this opinion are the two people who will run the process, host the tours, and negotiate the contract. Nothing is handed to a junior after the listing is signed.</span></div></div>
+        <div class="hl-card"><div class="chip">3</div><div class="tx"><b>A real buyer list, not a mailing list</b><span>Over 2,400 qualified buyers, of whom roughly 180 are 1031 exchange buyers currently in an identification window — the most motivated capital in this market.</span></div></div>
+        <div class="hl-card"><div class="chip">4</div><div class="tx"><b>Institutional marketing on a private asset</b><span>Full offering memorandum, professional photography, drone, and a dedicated deal site. Most assets in this size band are marketed with a one-page flyer, which is precisely why they trade at the bottom of their range.</span></div></div>
+        <div class="hl-card"><div class="chip">5</div><div class="tx"><b>Weekly written reporting</b><span>Every Friday you receive tour counts, offering-memorandum downloads, buyer feedback verbatim, and our read on pricing. No guessing about what the market is saying.</span></div></div>
+        <div class="hl-card"><div class="chip">6</div><div class="tx"><b>We will tell you not to sell</b><span>If the market moves against this asset between now and launch, we will say so and recommend waiting. An opinion of value that only ever recommends transacting is a sales document, not advice.</span></div></div>
+      </div>
+      <div class="notes">
+        <h4>Track record figures</h4>
+        <p>Every statistic on this page is invented for this sample. In a live engagement these are
+        the client's own verified numbers, and any performance claim would be supportable from
+        closed transaction records on request.</p>
+      </div>
+    </div>
+    <div class="rf">
+      <div class="logo"><span class="dia"></span> Marlowe &amp; Finch Property Advisors</div>
+      <div>Ridgeway Gardens Apartments · Reseda, CA</div>
+      <div class="pg">15</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 16. BACK COVER ============ -->
+<section class="page cover">
+  <div class="frame"></div>
+  <div class="cover-top">
+    <div class="brandmark">Marlowe &amp; Finch<span>Property Advisors</span></div>
+    <div class="om-tag">Sample Document</div>
+  </div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 .9in">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700">Prepared For The Ridgeway Family Trust</div>
+    <div style="font-family:var(--hf);font-size:44px;line-height:1.02;font-weight:600;color:#fff;margin-top:12px">
+      Thank you for the<br><em style="color:var(--accent)">opportunity.</em>
+    </div>
+    <div style="height:2px;width:64px;background:var(--accent);margin:22px 0"></div>
+    <div style="display:flex;gap:64px">
+      <div style="font-size:10.5px;color:rgba(255,255,255,.88);line-height:1.75">
+        <b style="font-size:13px;color:#fff;font-family:var(--hf)">Celeste Marlowe</b><br>
+        Principal, Multifamily Investments<br>
+        CA DRE #01999905<br>(626) 555-0118<br>celeste.marlowe@marlowefinch.example
+      </div>
+      <div style="font-size:10.5px;color:rgba(255,255,255,.88);line-height:1.75">
+        <b style="font-size:13px;color:#fff;font-family:var(--hf)">Theo Okafor</b><br>
+        Director, Investment Sales<br>
+        CA DRE #01999906<br>(626) 555-0119<br>theo.okafor@marlowefinch.example
+      </div>
+    </div>
+    <div style="margin-top:34px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)">
+      260 South Lake Avenue, Suite 210 &nbsp;·&nbsp; Pasadena, CA 91101
+    </div>
+  </div>
+  <div style="position:absolute;left:.9in;right:.9in;bottom:.5in;font-size:8px;line-height:1.7;color:rgba(255,255,255,.44)">
+    Sample document produced by Offering Studio for portfolio purposes. Ridgeway Gardens
+    Apartments, the Ridgeway Family Trust, Marlowe &amp; Finch Property Advisors, and all persons, license
+    numbers, addresses, rents, expenses, comparables, and track-record figures shown are
+    fictional. Photography does not depict any described property. This is not an appraisal.
+    Basemap imagery: USGS The National Map.<br>
+    Photography via Unsplash — allPhoto Bangkok, Nathan Bang, Steven Ungermann, Isaac Martin,
+    Lotus Design N Print.
+  </div>
+</section>
+
+</div>
+</body>
+</html>

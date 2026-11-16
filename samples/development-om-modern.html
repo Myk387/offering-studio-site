@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sample Development Offering Memorandum — Alder Row (Modern style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#12304F; --navy-deep:#0A1F36; --navy-soft:#1F4A75;
+    --cream:#F6F5F2; --cream-2:#EAE8E2;
+    --accent:#B07C3C; --accent-deep:#8E6129;
+    --ink:#1B1F27; --muted:#6B7280; --line:#DCD9D2;
+    --W:1920px; --H:1080px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#3D4148}
+  body{font-family:var(--bf),sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  .toolbar{position:fixed;top:14px;right:14px;z-index:99;display:flex;gap:8px}
+  .toolbar button,.toolbar a{font-family:var(--bf);font-size:12px;font-weight:600;letter-spacing:.04em;border:none;border-radius:5px;
+    background:var(--accent);color:#fff;padding:9px 14px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);text-decoration:none}
+  .toolbar a{background:var(--navy)}
+  @media print{.toolbar{display:none}}
+
+  /* deck-stage geometry: 1920x1080 == 20in x 11.25in at 96dpi */
+  .deck{display:flex;flex-direction:column;align-items:center;gap:30px;padding:30px 0 60px}
+  .fit{width:var(--W);transform-origin:top center}
+  .slide{width:var(--W);height:var(--H);background:var(--cream);position:relative;overflow:hidden;
+    box-shadow:0 14px 44px rgba(0,0,0,.45);margin-bottom:30px}
+  .pad{position:absolute;inset:0;padding:78px 96px 64px;display:flex;flex-direction:column}
+  @page{size:20in 11.25in;margin:0}
+  @media print{
+    .deck{gap:0;padding:0}
+    .fit{transform:none !important}
+    .slide{box-shadow:none;break-after:page;margin-bottom:0}
+  }
+
+  .sampleflag{position:absolute;top:46px;right:-78px;transform:rotate(38deg);z-index:20;
+    background:var(--accent);color:#fff;font-size:15px;font-weight:700;letter-spacing:.28em;
+    padding:9px 96px;opacity:.92;pointer-events:none}
+
+  .sh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--line);
+    padding-bottom:14px;margin-bottom:30px}
+  .sh .eyebrow{font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .sh .t{font-family:var(--hf);font-size:40px;color:var(--navy);font-weight:600;margin-top:6px;line-height:1}
+  .sh .tag{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:right}
+  .sf{margin-top:20px;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--line);
+    padding-top:13px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .sf .pg{color:var(--navy);font-weight:600}
+  .logo{display:flex;align-items:center;gap:12px;font-family:var(--hf);font-weight:600;color:var(--navy);font-size:22px}
+  .logo .dia{width:15px;height:15px;background:var(--accent);transform:rotate(45deg);display:inline-block}
+
+  h1,h2,h3{margin:0}
+  .body{flex:1;min-height:0;overflow:hidden}
+  p{line-height:1.5}
+  .lead{font-family:var(--hf);font-size:28px;line-height:1.42;color:var(--navy);font-weight:500}
+  .txt{font-size:17px;line-height:1.62;color:#3a4150}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:38px}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+
+  /* cover */
+  .cover{background:var(--navy-deep);color:#fff}
+  .cover .hero{position:absolute;inset:0}
+  .cover .hero img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) brightness(.88)}
+  .cover .grad{position:absolute;inset:0;background:linear-gradient(180deg,
+    rgba(10,31,54,.84) 0%,rgba(10,31,54,.40) 24%,rgba(10,31,54,.30) 46%,rgba(10,31,54,.93) 100%)}
+  .cover .frame{position:absolute;inset:52px;border:2px solid rgba(255,255,255,.26);pointer-events:none}
+  .cover-top{position:absolute;top:96px;left:120px;right:120px;display:flex;justify-content:space-between;align-items:center;z-index:3}
+  .om-tag{font-size:16px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .brandmark{font-family:var(--hf);font-size:30px;font-weight:600;color:#fff}
+  .brandmark span{display:block;font-family:var(--bf);font-size:12px;letter-spacing:.26em;color:var(--accent);font-weight:700;margin-top:6px}
+  .cover-foot{position:absolute;left:0;right:0;bottom:0;padding:150px 120px 96px;z-index:3;
+    background:linear-gradient(0deg,rgba(10,31,54,.95) 16%,rgba(10,31,54,0) 100%)}
+  .cf-rule{height:4px;width:110px;background:var(--accent);margin-bottom:26px}
+  .cf-title{font-family:var(--hf);font-size:96px;line-height:.95;font-weight:600;color:#fff;letter-spacing:-.015em}
+  .cf-title em{font-style:italic;color:var(--accent)}
+  .cf-addr{margin-top:26px;font-size:20px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+  .cstats{display:flex;gap:82px;margin-top:44px}
+  .cstats .v{font-family:var(--hf);font-size:38px;font-weight:600;color:#fff}
+  .cstats .l{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:9px}
+
+  /* photo */
+  .ph{position:relative;background:var(--navy-deep);overflow:hidden;display:flex;align-items:flex-end}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ph::before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;z-index:1;
+    background:linear-gradient(0deg,rgba(10,31,54,.88) 0%,rgba(10,31,54,.42) 46%,transparent 100%)}
+  .ph .tag{position:relative;z-index:2;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.9);font-weight:600;padding:18px 22px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+  /* tiles / kpis */
+  .tiles{display:grid;gap:22px}
+  .tl-c{background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent);padding:24px 26px}
+  .tl-c .l{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .tl-c .v{font-family:var(--hf);font-size:44px;font-weight:600;color:var(--navy);margin-top:10px;line-height:1}
+  .tl-c .s{font-size:14px;color:var(--muted);margin-top:8px}
+
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);background:var(--navy)}
+  .kpis .k{padding:26px 28px;border-left:1px solid rgba(255,255,255,.12)}
+  .kpis .k:first-child{border-left:none}
+  .kpis .k .v{font-family:var(--hf);font-size:40px;font-weight:600;color:#fff;line-height:1}
+  .kpis .k .v.acc{color:var(--accent)}
+  .kpis .k .l{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:11px}
+
+  table{width:100%;border-collapse:collapse;font-size:17px;font-variant-numeric:tabular-nums;border:1px solid var(--line)}
+  thead th{background:var(--navy);color:#fff;font-weight:600;text-align:right;padding:14px 18px;font-size:14px;
+    letter-spacing:.08em;text-transform:uppercase;border-bottom:3px solid var(--accent)}
+  thead th:first-child{text-align:left}
+  tbody td{padding:12px 18px;text-align:right;border-bottom:1px solid var(--line);color:#2b323d}
+  tbody td:first-child{text-align:left;font-weight:500;color:var(--ink)}
+  tbody tr:nth-child(even){background:rgba(18,48,79,.035)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr.sum td{background:var(--cream-2);font-weight:700;color:var(--navy);border-top:2px solid var(--navy)}
+  tbody tr.hl td{background:rgba(176,124,60,.14);font-weight:600}
+
+  .fbar{background:var(--navy);color:#fff;font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;padding:11px 20px;border-bottom:3px solid var(--accent);margin-top:18px}
+  .fbar:first-child{margin-top:0}
+  .frow{display:flex;justify-content:space-between;font-size:17px;padding:9px 20px;border-bottom:1px solid var(--line);background:#fff}
+  .frow span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
+  .frow.tot{background:var(--cream-2);font-weight:700;color:var(--navy)}
+  .frow .mut{color:var(--muted)}
+
+  .panel{background:#fff;border:1px solid var(--line);padding:26px 30px}
+  .panel h3{font-family:var(--hf);font-size:24px;color:var(--navy);font-weight:600;margin-bottom:16px}
+  .panel.accent{border-top:5px solid var(--accent)}
+  .dl{display:grid;grid-template-columns:auto 1fr;gap:9px 26px;font-size:17px}
+  .dl dt{color:var(--muted)}
+  .dl dd{margin:0;text-align:right;font-weight:600;color:var(--ink)}
+  .notes{background:var(--navy-deep);color:#fff;padding:24px 28px;border-left:6px solid var(--accent)}
+  .notes h4{margin:0 0 11px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .notes p{margin:0;font-size:16px;line-height:1.6;color:rgba(255,255,255,.87)}
+
+  .mapfr{position:relative;overflow:hidden;border:1px solid var(--line);background:#e8e6e1}
+  .mapfr img.tile{position:absolute;width:256px;height:256px}
+  .pin{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;
+    background:var(--navy);color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;
+    justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.4);border:3px solid #fff;z-index:5}
+  .pin.subj{background:var(--accent);width:40px;height:40px;font-size:17px}
+  .mapattr{position:absolute;right:8px;bottom:6px;z-index:6;font-size:11px;color:#5a6068;
+    background:rgba(255,255,255,.8);padding:3px 9px;border-radius:3px}
+
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 26px}
+  .hl-card{background:#fff;border:1px solid var(--line);padding:24px 28px;display:flex;gap:22px;align-items:flex-start}
+  .hl-card .chip{flex-shrink:0;width:44px;height:44px;background:var(--navy);color:#fff;
+    font-size:19px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .hl-card b{display:block;font-size:20px;color:var(--navy);font-weight:700;margin-bottom:8px;font-family:var(--hf)}
+  .hl-card span{font-size:16px;color:var(--muted);line-height:1.55}
+
+  /* phase timeline */
+  .ph-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .ph-row .st{border-top:5px solid var(--accent);padding:22px 24px 0}
+  .ph-row .st:not(:last-child){border-right:1px solid var(--line)}
+  .ph-row .st .q{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+  .ph-row .st h4{font-family:var(--hf);font-size:23px;color:var(--navy);margin:10px 0 12px;font-weight:600}
+  .ph-row .st ul{margin:0;padding-left:20px}
+  .ph-row .st li{font-size:15px;color:var(--muted);line-height:1.5;margin-bottom:7px}
+
+:root{--hf:'Manrope',sans-serif;--bf:'Inter',sans-serif;
+  --navy:#1D2B31;--navy-deep:#131D21;--navy-soft:#3B4F57;--cream:#FFFFFF;--cream-2:#EDF2F2;
+  --accent:#1F8A70;--accent-deep:#166A56;--ink:#141B1E;--muted:#66737A;--line:#DCE3E4}
+html,body{background:#2A3236}
+em{font-style:normal}
+.rh .sect,.sh .t,.cf-title,.brandmark,.logo{font-weight:800;letter-spacing:-.02em}
+.cf-title{letter-spacing:-.035em}
+.cf-title em{font-style:normal}
+.rh{border-bottom:none;padding-bottom:0}
+.rh .sect::after{content:"";display:block;width:34px;height:3px;background:var(--accent);margin-top:6px}
+.sh{border-bottom:none;padding-bottom:0}
+.sh .t::after{content:"";display:block;width:64px;height:5px;background:var(--accent);margin-top:12px}
+.rh .eyebrow,.sh .eyebrow,.eyebrow{color:var(--accent)}
+.logo .dia{transform:none;border-radius:2px}
+/* cover: solid panel left, photo right */
+.cover .grad{background:linear-gradient(90deg,var(--navy-deep) 0,var(--navy-deep) 44%,rgba(19,29,33,.0) 44%)}
+.cover .frame{display:none}
+.cover .hero img{filter:none}
+.cover-footer,.cover-foot{right:56%;background:none}
+.cover-footer .cf-title{font-size:42px}
+.cover-stats{flex-wrap:wrap;gap:14px 30px}
+.cstats{flex-wrap:wrap;gap:30px 60px}
+.om-tag{background:var(--accent);color:#fff;padding:6px 11px}
+/* blocks */
+.tile-c,.tl-c{border-top:1px solid var(--line);border-left:4px solid var(--accent)}
+.speccard,.hl-card{border-radius:0}
+.hl-card .chip{background:var(--accent);border-radius:0}
+thead th{background:var(--accent);border-bottom:none}
+tbody tr:nth-child(even){background:#F4F7F7}
+tbody tr.sum td{border-top-color:var(--navy)}
+tbody tr.hl td{background:rgba(31,138,112,.13)}
+.notes{background:var(--cream-2);border-left-color:var(--accent)}
+.notes p{color:#33403F}
+.notes h4{color:var(--accent-deep)}
+.fbar{background:var(--navy);border-bottom-color:var(--accent)}
+.panel.accent{border-top-color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="../index.html">&larr; Offering Studio</a>
+  <button onclick="window.print()">&#10515; Print / Save PDF</button>
+</div>
+
+<div class="deck"><div class="fit" id="fit">
+
+<!-- ============ 1. COVER ============ -->
+<section class="slide cover">
+  <div class="hero"><img src="assets/dev-cover.jpg" onerror="this.remove()" alt=""></div>
+  <div class="grad"></div>
+  <div class="frame"></div>
+  <div class="cover-top">
+    <div class="brandmark">Halden Rowe<span>Realty Advisors</span></div>
+    <div class="om-tag">Development Offering Memorandum</div>
+  </div>
+  <div class="cover-foot">
+    <div class="cf-rule"></div>
+    <div class="cf-title">Alder Row<br><em>North Hollywood</em></div>
+    <div class="cf-addr">5100 Palmwood Avenue &nbsp;·&nbsp; Los Angeles, CA 91601</div>
+    <div class="cstats">
+      <div><div class="v">$2,750,000</div><div class="l">Offering Price</div></div>
+      <div><div class="v">14</div><div class="l">Entitled Townhomes</div></div>
+      <div><div class="v">$13.35M</div><div class="l">Projected Sellout</div></div>
+      <div><div class="v">19.1%</div><div class="l">Return on Cost</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. THE OPPORTUNITY ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">01 — The Opportunity</div><div class="t">A shovel-ready townhome site</div></div>
+      <div class="tag">14 Units · North Hollywood</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:30px">
+      <p class="lead" style="margin:0;max-width:88%">
+        A fully entitled 22,000 square foot site approved for fourteen attached townhomes,
+        offered at $2,750,000 — 20.6% of projected sellout, with entitlements in hand and
+        no discretionary approvals remaining.
+      </p>
+      <div class="kpis">
+        <div class="k"><div class="v acc">$196,429</div><div class="l">Land Per Unit</div></div>
+        <div class="k"><div class="v">$125</div><div class="l">Per Land SF</div></div>
+        <div class="k"><div class="v">$578</div><div class="l">Sellout Per SF</div></div>
+        <div class="k"><div class="v acc">15.2%</div><div class="l">Margin On Sellout</div></div>
+        <div class="k"><div class="v">24 mo</div><div class="l">To Final Closing</div></div>
+      </div>
+      <div class="hl-grid" style="flex:1">
+        <div class="hl-card"><div class="chip">1</div><div><b>Entitlements are final</b><span>The site carries a vesting tentative tract map and approved site plan with all appeal periods expired. A buyer proceeds directly to construction drawings and permit — removing eighteen to thirty months of entitlement risk and the possibility of a neighborhood appeal.</span></div></div>
+        <div class="hl-card"><div class="chip">2</div><div><b>Land basis inside the comparable band</b><span>At $196,429 per approved unit the site prices within $4,000 of the four-comparable average of $192,500, and at $125 per land square foot against a $125 average. This is not a site that requires a heroic land basis to work.</span></div></div>
+        <div class="hl-card"><div class="chip">3</div><div><b>Sellout supported by five closed sales</b><span>Projected pricing of $578 per square foot sits 0.9% above a five-comparable average of $573, all closed within the trailing six months and all within one mile. The pricing assumption is evidence-led rather than aspirational.</span></div></div>
+        <div class="hl-card"><div class="chip">4</div><div><b>Returns clear the hurdle at today's costs</b><span>A 19.1% return on cost and 15.2% margin on sellout, modeled at $290 per foot hard cost with no assumed appreciation. The deal does not need the market to move to work.</span></div></div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">02</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. SITE & ENTITLEMENT ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">02 — The Site</div><div class="t">Site &amp; Entitlement Status</div></div>
+      <div class="tag">Vesting Tentative Tract Map Approved</div>
+    </div>
+    <div class="body g2" style="gap:38px">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div class="panel accent">
+          <h3>Site Particulars</h3>
+          <dl class="dl">
+            <dt>Address</dt><dd>5100 Palmwood Avenue</dd>
+            <dt>Land area</dt><dd>22,000 SF (0.51 ac)</dd>
+            <dt>Approved units</dt><dd>14 attached townhomes</dd>
+            <dt>Density achieved</dt><dd>1,571 SF of land per unit</dd>
+            <dt>Total sellable area</dt><dd>23,080 SF</dd>
+            <dt>Average unit size</dt><dd>1,649 SF</dd>
+            <dt>Parking approved</dt><dd>28 spaces, 2 per unit</dd>
+            <dt>Height / stories</dt><dd>3 stories, 45 ft</dd>
+            <dt>Current improvements</dt><dd>Vacant, graded, fenced</dd>
+          </dl>
+        </div>
+        <div class="panel">
+          <h3>Entitlement Milestones Completed</h3>
+          <table style="border:none;font-size:16px">
+            <tbody>
+              <tr><td style="padding:9px 0">Vesting tentative tract map</td><td style="text-align:right;padding:9px 0;color:var(--accent-deep);font-weight:600">Approved</td></tr>
+              <tr><td style="padding:9px 0">Site plan review</td><td style="text-align:right;padding:9px 0;color:var(--accent-deep);font-weight:600">Approved</td></tr>
+              <tr><td style="padding:9px 0">Environmental clearance</td><td style="text-align:right;padding:9px 0;color:var(--accent-deep);font-weight:600">Adopted</td></tr>
+              <tr><td style="padding:9px 0">Appeal period</td><td style="text-align:right;padding:9px 0;color:var(--accent-deep);font-weight:600">Expired</td></tr>
+              <tr><td style="padding:9px 0">Haul route</td><td style="text-align:right;padding:9px 0;color:var(--muted)">Buyer scope</td></tr>
+              <tr><td style="padding:9px 0">Building permit</td><td style="text-align:right;padding:9px 0;color:var(--muted)">Buyer scope</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;min-height:0">
+        <div class="ph" style="flex:1;min-height:0">
+          <img src="assets/dev-1.jpg" onerror="this.remove()" alt="">
+          <div class="tag">Subject site — graded and fenced</div>
+        </div>
+        <div class="notes">
+          <h4>What the buyer still carries</h4>
+          <p>Construction drawings, plan check, building permit, school fees, and utility
+          connections remain buyer scope and are carried in the soft-cost line at 18% of
+          hard cost. The tract map has three years remaining before extension is required.
+          A haul route approval will be needed prior to grading.</p>
+        </div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">03</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. UNIT PROGRAM ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">03 — The Program</div><div class="t">Unit Program &amp; Sellout</div></div>
+      <div class="tag">14 Units · 23,080 Sellable SF</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:26px">
+      <table>
+        <thead>
+          <tr><th>Plan</th><th>Count</th><th>Beds / Baths</th><th>SF Each</th><th>Total SF</th><th>Price Each</th><th>$ / SF</th><th>Plan Sellout</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Plan A</td><td>6</td><td>3 BR / 2.5 BA</td><td>1,520</td><td>9,120</td><td>$895,000</td><td>$589</td><td>$5,370,000</td></tr>
+          <tr><td>Plan B</td><td>6</td><td>3 BR / 3 BA</td><td>1,700</td><td>10,200</td><td>$965,000</td><td>$568</td><td>$5,790,000</td></tr>
+          <tr><td>Plan C</td><td>2</td><td>4 BR / 3.5 BA</td><td>1,880</td><td>3,760</td><td>$1,095,000</td><td>$582</td><td>$2,190,000</td></tr>
+          <tr class="sum"><td>Total / Weighted Avg</td><td>14</td><td>—</td><td>1,649</td><td>23,080</td><td>$953,571</td><td>$578</td><td>$13,350,000</td></tr>
+        </tbody>
+      </table>
+      <div class="g2" style="gap:32px;flex:1;min-height:0">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div class="tiles" style="grid-template-columns:1fr 1fr">
+            <div class="tl-c"><div class="l">Gross Sellout</div><div class="v" style="font-size:38px">$13,350,000</div><div class="s">Across 14 units</div></div>
+            <div class="tl-c"><div class="l">Blended $ / SF</div><div class="v" style="font-size:38px">$578</div><div class="s">Comp avg $573</div></div>
+          </div>
+          <div class="panel" style="flex:1">
+            <h3>Pricing logic</h3>
+            <p class="txt" style="margin:0">
+              Plan A carries the highest per-foot price and the lowest absolute price — the
+              standard relationship in attached product, where the smallest plan reaches the
+              deepest buyer pool and clears first. Plan C is priced at a discount per foot to
+              its size because four-bedroom attached product in this submarket has a
+              materially thinner buyer pool, and the two units are positioned to close last.
+            </p>
+          </div>
+        </div>
+        <div class="ph" style="min-height:0">
+          <img src="assets/dev-2.jpg" onerror="this.remove()" alt="">
+          <div class="tag">Representative interior — comparable product</div>
+        </div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">04</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. DEVELOPMENT BUDGET ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">04 — The Numbers</div><div class="t">Development Budget &amp; Returns</div></div>
+      <div class="tag">Residual Land Analysis</div>
+    </div>
+    <div class="body g2" style="gap:38px">
+      <div>
+        <div class="fbar">Revenue</div>
+        <div class="frow"><span class="mut">Gross sellout — 14 units</span><span>$13,350,000</span></div>
+        <div class="frow"><span class="mut">Average price per unit</span><span>$953,571</span></div>
+        <div class="frow"><span class="mut">Average price per SF</span><span>$578</span></div>
+        <div class="frow"><span class="mut">Less selling costs (5.0%)</span><span>($667,500)</span></div>
+        <div class="frow tot"><span>Net sales proceeds</span><span>$12,682,500</span></div>
+
+        <div class="fbar">Development Cost</div>
+        <div class="frow"><span class="mut">Land — offering price</span><span>$2,750,000</span></div>
+        <div class="frow"><span class="mut">Hard cost — $290 / sellable SF</span><span>$6,693,200</span></div>
+        <div class="frow"><span class="mut">Soft cost — 18% of hard</span><span>$1,204,776</span></div>
+        <div class="frow tot"><span>Total development cost</span><span>$10,647,976</span></div>
+        <div class="frow"><span class="mut">Cost per unit, all in</span><span>$760,570</span></div>
+        <div class="frow"><span class="mut">Cost per sellable SF</span><span>$461</span></div>
+
+        <div class="fbar">Result</div>
+        <div class="frow tot"><span>Developer profit</span><span>$2,034,524</span></div>
+        <div class="frow"><span class="mut">Margin on gross sellout</span><span>15.24%</span></div>
+        <div class="frow"><span class="mut">Return on total cost</span><span>19.11%</span></div>
+        <div class="frow"><span class="mut">Profit per unit</span><span>$145,323</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div class="panel accent">
+          <h3>Land residual — what the site supports</h3>
+          <p class="txt" style="margin:0 0 16px">
+            Holding a 15% margin on sellout as the developer's requirement and solving backwards
+            for land gives the maximum supportable land price. The offering price sits just
+            below that figure.
+          </p>
+          <dl class="dl">
+            <dt>Gross sellout</dt><dd>$13,350,000</dd>
+            <dt>Less selling costs</dt><dd>($667,500)</dd>
+            <dt>Less hard cost</dt><dd>($6,693,200)</dd>
+            <dt>Less soft cost</dt><dd>($1,204,776)</dd>
+            <dt>Less required profit at 15%</dt><dd>($2,002,500)</dd>
+            <dt style="font-weight:600;color:var(--navy)">Supportable land value</dt><dd style="color:var(--accent-deep)">$2,782,024</dd>
+            <dt>Offering price</dt><dd>$2,750,000</dd>
+          </dl>
+        </div>
+        <div class="notes" style="flex:1">
+          <h4>Sensitivity worth testing</h4>
+          <p>Hard cost is the dominant variable. A $20 per foot move — roughly 7% — swings
+          profit by $462,000 and the margin by 3.5 points. A buyer should price this deal
+          against their own subcontractor bids rather than the $290 assumption used here.
+          Selling costs assume a 5% total load; a developer with an in-house sales team
+          will underwrite lower. Every figure on this slide is invented for this sample.</p>
+        </div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">05</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. CLOSED COMPARABLES ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">05 — Evidence</div><div class="t">Closed Sale Comparables</div></div>
+      <div class="tag">New Attached Product · Trailing 6 Months</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:26px">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Address</th><th>Year Built</th><th>Beds / Baths</th><th>SF</th><th>Close Date</th><th>Close Price</th><th>$ / SF</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>5420 Bakman Ave</td><td>2024</td><td>3 BR / 2.5 BA</td><td>1,580</td><td>03/2026</td><td>$905,000</td><td>$573</td></tr>
+          <tr><td>2</td><td>11240 Chandler Blvd</td><td>2023</td><td>3 BR / 3 BA</td><td>1,720</td><td>01/2026</td><td>$985,000</td><td>$573</td></tr>
+          <tr><td>3</td><td>5615 Fair Ave</td><td>2024</td><td>3 BR / 2.5 BA</td><td>1,640</td><td>04/2026</td><td>$942,000</td><td>$574</td></tr>
+          <tr><td>4</td><td>11510 Otsego St</td><td>2025</td><td>4 BR / 3.5 BA</td><td>1,850</td><td>02/2026</td><td>$1,065,000</td><td>$576</td></tr>
+          <tr><td>5</td><td>5205 Case Ave</td><td>2023</td><td>3 BR / 2.5 BA</td><td>1,490</td><td>05/2026</td><td>$848,000</td><td>$569</td></tr>
+          <tr class="sum"><td></td><td>Comparable Average</td><td>2024</td><td>—</td><td>1,656</td><td>—</td><td>$949,000</td><td>$573</td></tr>
+          <tr class="hl"><td>S</td><td>Alder Row — projected</td><td>2028</td><td>—</td><td>1,649</td><td>Projected</td><td>$953,571</td><td>$578</td></tr>
+        </tbody>
+      </table>
+      <div class="g2" style="gap:32px;flex:1;min-height:0">
+        <div class="tiles" style="grid-template-columns:1fr 1fr;align-content:start">
+          <div class="tl-c"><div class="l">Comp Average $ / SF</div><div class="v" style="font-size:38px">$573</div><div class="s">Five closed sales</div></div>
+          <div class="tl-c"><div class="l">Subject Projected</div><div class="v" style="font-size:38px;color:var(--accent)">$578</div><div class="s">+0.9% premium</div></div>
+          <div class="tl-c"><div class="l">Comp Avg Size</div><div class="v" style="font-size:38px">1,656 SF</div><div class="s">Subject 1,649 SF</div></div>
+          <div class="tl-c"><div class="l">Price Band Observed</div><div class="v" style="font-size:32px">$569–$576</div><div class="s">Tight seven-dollar spread</div></div>
+        </div>
+        <div class="notes">
+          <h4>On the 0.9% premium</h4>
+          <p>The comparable set is unusually tight — a seven-dollar per foot spread across
+          five sales — which makes the projection defensible but also caps it. We have
+          modeled a 0.9% premium to the average on the basis of 2028 delivery against a
+          2023–2025 comparable set, and nothing more. A buyer underwriting meaningful price
+          appreciation over the construction period is taking a view this document does not
+          take. Every figure here is invented for this sample.</p>
+        </div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">06</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. LAND COMPARABLES + MAP ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">06 — Evidence</div><div class="t">Land Comparables &amp; Location</div></div>
+      <div class="tag">Entitled Sites · Trailing 12 Months</div>
+    </div>
+    <div class="body g2" style="gap:38px">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Address</th><th>Land SF</th><th>Units</th><th>Price</th><th>$ / Unit</th><th>$ / SF</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>6120 Vineland Ave</td><td>18,500</td><td>12</td><td>$2,280,000</td><td>$190,000</td><td>$123</td></tr>
+            <tr><td>2</td><td>5840 Cahuenga Blvd</td><td>24,000</td><td>16</td><td>$3,120,000</td><td>$195,000</td><td>$130</td></tr>
+            <tr><td>3</td><td>11820 Sherman Way</td><td>20,000</td><td>12</td><td>$2,340,000</td><td>$195,000</td><td>$117</td></tr>
+            <tr><td>4</td><td>5330 Klump Ave</td><td>26,500</td><td>18</td><td>$3,420,000</td><td>$190,000</td><td>$129</td></tr>
+            <tr class="sum"><td></td><td>Comparable Average</td><td>22,250</td><td>15</td><td>$2,790,000</td><td>$192,500</td><td>$125</td></tr>
+            <tr class="hl"><td>S</td><td>Alder Row — offered</td><td>22,000</td><td>14</td><td>$2,750,000</td><td>$196,429</td><td>$125</td></tr>
+          </tbody>
+        </table>
+        <div class="notes" style="flex:1">
+          <h4>Notes</h4>
+          <p>All four comparables were entitled at the time of sale, which is the correct basis
+          for comparison — unentitled land in this submarket trades 30–40% below these figures
+          and carries the approval risk this site has already cleared. The subject prices 2.0%
+          above the average per unit and exactly at the average per land foot, reflecting a
+          slightly larger average unit size than the comparable set.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;min-height:0">
+        <div class="mapfr" style="width:100%;flex:1;min-height:0">
+          <img class="tile" src="assets/tiles/usgs_14_2802_6534.jpg" style="left:-241px; top:-239px;">
+          <img class="tile" src="assets/tiles/usgs_14_2802_6535.jpg" style="left:-241px; top:17px;">
+          <img class="tile" src="assets/tiles/usgs_14_2802_6536.jpg" style="left:-241px; top:273px;">
+          <img class="tile" src="assets/tiles/usgs_14_2802_6537.jpg" style="left:-241px; top:529px;">
+          <img class="tile" src="assets/tiles/usgs_14_2803_6534.jpg" style="left:15px; top:-239px;">
+          <img class="tile" src="assets/tiles/usgs_14_2803_6535.jpg" style="left:15px; top:17px;">
+          <img class="tile" src="assets/tiles/usgs_14_2803_6536.jpg" style="left:15px; top:273px;">
+          <img class="tile" src="assets/tiles/usgs_14_2803_6537.jpg" style="left:15px; top:529px;">
+          <img class="tile" src="assets/tiles/usgs_14_2804_6534.jpg" style="left:271px; top:-239px;">
+          <img class="tile" src="assets/tiles/usgs_14_2804_6535.jpg" style="left:271px; top:17px;">
+          <img class="tile" src="assets/tiles/usgs_14_2804_6536.jpg" style="left:271px; top:273px;">
+          <img class="tile" src="assets/tiles/usgs_14_2804_6537.jpg" style="left:271px; top:529px;">
+          <img class="tile" src="assets/tiles/usgs_14_2805_6534.jpg" style="left:527px; top:-239px;">
+          <img class="tile" src="assets/tiles/usgs_14_2805_6535.jpg" style="left:527px; top:17px;">
+          <img class="tile" src="assets/tiles/usgs_14_2805_6536.jpg" style="left:527px; top:273px;">
+          <img class="tile" src="assets/tiles/usgs_14_2805_6537.jpg" style="left:527px; top:529px;">
+          <img class="tile" src="assets/tiles/usgs_14_2806_6534.jpg" style="left:783px; top:-239px;">
+          <img class="tile" src="assets/tiles/usgs_14_2806_6535.jpg" style="left:783px; top:17px;">
+          <img class="tile" src="assets/tiles/usgs_14_2806_6536.jpg" style="left:783px; top:273px;">
+          <img class="tile" src="assets/tiles/usgs_14_2806_6537.jpg" style="left:783px; top:529px;">
+          <span class="pin subj" style="left:410px; top:200px;">S</span>
+          <span class="pin" style="left:499px; top:104px;">1</span>
+          <span class="pin" style="left:325px; top:296px;">2</span>
+          <span class="pin" style="left:253px; top:159px;">3</span>
+          <span class="pin" style="left:486px; top:320px;">4</span>
+          <span class="mapattr">Basemap: USGS The National Map</span>
+        </div>
+        <div class="tiles" style="grid-template-columns:repeat(3,1fr)">
+          <div class="tl-c" style="padding:18px 20px"><div class="l">Land % of Sellout</div><div class="v" style="font-size:30px">20.6%</div><div class="s">Target band 18–25%</div></div>
+          <div class="tl-c" style="padding:18px 20px"><div class="l">Vs. Comp $ / Unit</div><div class="v" style="font-size:30px">+2.0%</div><div class="s">Avg $192,500</div></div>
+          <div class="tl-c" style="padding:18px 20px"><div class="l">Vs. Comp $ / Land SF</div><div class="v" style="font-size:30px">At par</div><div class="s">Both $125</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">07</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. TIMELINE & ABSORPTION ============ -->
+<section class="slide">
+  <div class="sampleflag">Sample</div>
+  <div class="pad">
+    <div class="sh">
+      <div><div class="eyebrow">07 — Execution</div><div class="t">Delivery Timeline &amp; Absorption</div></div>
+      <div class="tag">24 Months to Final Closing</div>
+    </div>
+    <div class="body" style="display:flex;flex-direction:column;gap:30px">
+      <p class="lead" style="margin:0;max-width:88%">
+        Permit in six months, eighteen months of construction and closings, with sales
+        released in two phases to hold pricing through the run.
+      </p>
+      <div class="ph-row">
+        <div class="st">
+          <div class="q">Months 1–6</div>
+          <h4>Permit</h4>
+          <ul><li>Construction drawings</li><li>Plan check and corrections</li><li>Haul route approval</li><li>Building permit issued</li><li>GC bought out</li></ul>
+        </div>
+        <div class="st">
+          <div class="q">Months 7–12</div>
+          <h4>Site &amp; Frame</h4>
+          <ul><li>Grading and shoring</li><li>Foundations poured</li><li>Vertical framing</li><li>Model unit identified</li></ul>
+        </div>
+        <div class="st">
+          <div class="q">Months 13–18</div>
+          <h4>Finish &amp; Release I</h4>
+          <ul><li>Envelope and interiors</li><li>Model complete, sales open</li><li>Phase I — 8 units released</li><li>Reservations taken</li></ul>
+        </div>
+        <div class="st">
+          <div class="q">Months 19–22</div>
+          <h4>Close &amp; Release II</h4>
+          <ul><li>Final inspections, C of O</li><li>Phase I closings</li><li>Phase II — 6 units released</li><li>Pricing reviewed against absorption</li></ul>
+        </div>
+        <div class="st">
+          <div class="q">Months 23–24</div>
+          <h4>Sell-Through</h4>
+          <ul><li>Phase II closings</li><li>Plan C units closed last</li><li>HOA turned over</li><li>Project closed out</li></ul>
+        </div>
+      </div>
+      <div class="g2" style="gap:32px;flex:1;min-height:0">
+        <div class="panel">
+          <h3>Absorption assumption</h3>
+          <p class="txt" style="margin:0">
+            The model assumes 2.0 closings per month across a seven-month sales run, consistent
+            with the comparable projects in the closed-sale set. At that pace the fourteen units
+            clear inside the twenty-four month schedule with a month of slack. A slower two-year
+            market would extend the carry rather than break the deal — the sensitivity that
+            matters here is cost, not absorption.
+          </p>
+        </div>
+        <div class="notes">
+          <h4>Financing note</h4>
+          <p>The budget is presented unlevered. A construction facility at 65% loan to cost
+          would carry roughly $6.9 million with interest capitalized, and is not reflected in
+          the 19.1% return on cost shown on slide 5 — a levered buyer will underwrite a
+          materially higher equity return and a materially higher risk profile. Every figure
+          in this document is invented for this sample.</p>
+        </div>
+      </div>
+    </div>
+    <div class="sf">
+      <div class="logo"><span class="dia"></span> Halden Rowe Realty Advisors</div>
+      <div>Alder Row · North Hollywood, CA</div>
+      <div class="pg">08</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. BACK ============ -->
+<section class="slide cover">
+  <div class="frame"></div>
+  <div class="cover-top">
+    <div class="brandmark">Halden Rowe<span>Realty Advisors</span></div>
+    <div class="om-tag">Sample Document</div>
+  </div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 150px">
+    <div style="font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:700">Exclusively Listed By</div>
+    <div style="font-family:var(--hf);font-size:84px;line-height:1.02;font-weight:600;color:#fff;margin-top:22px">
+      Halden Rowe<br><em style="color:var(--accent)">Realty Advisors.</em>
+    </div>
+    <div style="height:4px;width:110px;background:var(--accent);margin:40px 0"></div>
+    <div style="display:flex;gap:110px">
+      <div style="font-size:18px;color:rgba(255,255,255,.88);line-height:1.8">
+        <b style="font-size:24px;color:#fff;font-family:var(--hf)">Priya Natarajan</b><br>
+        Principal, Land &amp; Development<br>
+        CA DRE #01999903<br>(310) 555-0172<br>priya.natarajan@haldenrowe.example
+      </div>
+      <div style="font-size:18px;color:rgba(255,255,255,.88);line-height:1.8">
+        <b style="font-size:24px;color:#fff;font-family:var(--hf)">Owen Callahan</b><br>
+        Director, Investment Sales<br>
+        CA DRE #01999904<br>(310) 555-0173<br>owen.callahan@haldenrowe.example
+      </div>
+    </div>
+    <div style="margin-top:56px;font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)">
+      11900 Olympic Boulevard, Suite 650 &nbsp;·&nbsp; Los Angeles, CA 90064
+    </div>
+  </div>
+  <div style="position:absolute;left:150px;right:150px;bottom:80px;font-size:13px;line-height:1.75;color:rgba(255,255,255,.44)">
+    Sample document produced by Offering Studio for portfolio purposes. Alder Row, Halden Rowe
+    Realty Advisors, and all persons, license numbers, addresses, entitlements, costs, prices, and
+    comparables shown are fictional. Photography does not depict any described property or
+    project. Development projections are illustrative and are not a forecast.
+    Basemap imagery: USGS The National Map.<br>
+    Photography via Unsplash — Alan Villegas, Troy Mortier, Clay Banks.
+  </div>
+</section>
+
+</div></div>
+
+<script>
+  // Scale the 1920px stage down to the viewport for screen viewing.
+  // Print resets the transform (see @media print) so the PDF stays full size.
+  (function () {
+    var fit = document.getElementById('fit');
+    function resize() {
+      var s = Math.min(1, (window.innerWidth - 40) / 1920);
+      fit.style.transform = 'scale(' + s + ')';
+      fit.style.height = (fit.scrollHeight * s) + 'px';
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  })();
+</script>
+</body>
+</html>
