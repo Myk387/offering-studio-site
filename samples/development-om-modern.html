@@ -23,6 +23,13 @@
   .toolbar button,.toolbar a{font-family:var(--bf);font-size:12px;font-weight:600;letter-spacing:.04em;border:none;border-radius:5px;
     background:var(--accent);color:#fff;padding:9px 14px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);text-decoration:none}
   .toolbar a{background:var(--navy)}
+
+  .toolbar .stylesw{display:flex;align-items:center;gap:2px;background:#fff;border-radius:5px;padding:3px;
+    box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .toolbar .stylesw span{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6B7280;padding:0 8px 0 7px}
+  .toolbar .stylesw a{background:transparent;color:#1B1F27;box-shadow:none;padding:6px 11px;border-radius:3px}
+  .toolbar .stylesw a:hover{background:#EEF0F2}
+  .toolbar .stylesw a.on{background:var(--navy);color:#fff}
   @media print{.toolbar{display:none}}
 
   /* deck-stage geometry: 1920x1080 == 20in x 11.25in at 96dpi */
@@ -199,6 +206,7 @@ tbody tr.hl td{background:rgba(31,138,112,.13)}
 <body>
 
 <div class="toolbar">
+  <div class="stylesw"><span>Style</span><a href="development-om.html">Classic</a><a href="development-om-modern.html" class="on">Modern</a><a href="development-om-editorial.html">Editorial</a></div>
   <a href="../index.html">&larr; Offering Studio</a>
   <button onclick="window.print()">&#10515; Print / Save PDF</button>
 </div>
@@ -689,6 +697,21 @@ tbody tr.hl td{background:rgba(31,138,112,.13)}
     window.addEventListener('resize', resize);
     resize();
   })();
+</script>
+<script>
+/* Style switcher: open the same page position in the chosen style. */
+(function(){
+  var max=function(){return Math.max(1,document.documentElement.scrollHeight-innerHeight)};
+  document.querySelectorAll('.stylesw a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(a.classList.contains('on')){e.preventDefault();return}
+      e.preventDefault();
+      location.href=a.getAttribute('href')+'#y='+(scrollY/max()).toFixed(4);
+    });
+  });
+  var m=location.hash.match(/y=([0-9.]+)/);
+  if(m){addEventListener('load',function(){scrollTo(0,parseFloat(m[1])*max())})}
+})();
 </script>
 </body>
 </html>

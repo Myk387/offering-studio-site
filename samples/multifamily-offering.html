@@ -25,6 +25,13 @@
   .toolbar a{background:var(--navy)}
   /* The SAMPLE flag must survive printing — a sample PDF without it is a
      document that could be mistaken for a real offering. Only hide the UI. */
+
+  .toolbar .stylesw{display:flex;align-items:center;gap:2px;background:#fff;border-radius:5px;padding:3px;
+    box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .toolbar .stylesw span{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6B7280;padding:0 8px 0 7px}
+  .toolbar .stylesw a{background:transparent;color:#1B1F27;box-shadow:none;padding:6px 11px;border-radius:3px}
+  .toolbar .stylesw a:hover{background:#EEF0F2}
+  .toolbar .stylesw a.on{background:var(--navy);color:#fff}
   @media print{.toolbar{display:none}}
 
   .deck{display:flex;flex-direction:column;align-items:center;gap:26px;padding:34px 14px 60px}
@@ -166,6 +173,7 @@
 <body>
 
 <div class="toolbar">
+  <div class="stylesw"><span>Style</span><a href="multifamily-offering.html" class="on">Classic</a><a href="multifamily-offering-modern.html">Modern</a><a href="multifamily-offering-editorial.html">Editorial</a></div>
   <a href="../index.html">&larr; Offering Studio</a>
   <button onclick="window.print()">&#10515; Print / Save PDF</button>
 </div>
@@ -968,5 +976,20 @@
 </section>
 
 </div>
+<script>
+/* Style switcher: open the same page position in the chosen style. */
+(function(){
+  var max=function(){return Math.max(1,document.documentElement.scrollHeight-innerHeight)};
+  document.querySelectorAll('.stylesw a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(a.classList.contains('on')){e.preventDefault();return}
+      e.preventDefault();
+      location.href=a.getAttribute('href')+'#y='+(scrollY/max()).toFixed(4);
+    });
+  });
+  var m=location.hash.match(/y=([0-9.]+)/);
+  if(m){addEventListener('load',function(){scrollTo(0,parseFloat(m[1])*max())})}
+})();
+</script>
 </body>
 </html>
